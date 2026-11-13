@@ -1,4 +1,4 @@
-import type { AreaId, EventInfo, Session } from '../types';
+import type { AreaId, EventInfo, MyApply, Session } from '../types';
 import { areaMoves, conflictingIds, sortByStart, type AreaMove } from './layout';
 import { fromMinutes, toMinutes } from './time';
 
@@ -87,4 +87,22 @@ export function selectedEvents(selected: string[], db: Lookup): Set<string> {
     if (s) out.add(s.event);
   }
   return out;
+}
+
+/**
+ * Events where the visitor won a place AND picked the slot(s) they won: the other
+ * application slots of those events are no longer relevant and can be shown faded.
+ * Returns the event numbers; a slot is "passed over" when its event is in the set,
+ * it needs an application and it is not selected.
+ */
+export function wonEventsWithPick(sessions: Session[], selected: Set<string>, apply: Record<string, MyApply>): Set<string> {
+  const out = new Set<string>();
+  for (const s of sessions) {
+    if (s.needs === 'apply' && apply[s.event] === 'won' && selected.has(s.id)) out.add(s.event);
+  }
+  return out;
+}
+
+export function isPassedOver(s: Session, selected: Set<string>, wonPicked: Set<string>): boolean {
+  return s.needs === 'apply' && wonPicked.has(s.event) && !selected.has(s.id);
 }

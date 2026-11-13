@@ -17,6 +17,7 @@ import {
   timeSlots,
 } from '../lib/layout';
 import { fromMinutes, toMinutes } from '../lib/time';
+import { isPassedOver, wonEventsWithPick } from '../lib/plan';
 import { SessionCard } from './SessionCard';
 
 interface Props {
@@ -43,6 +44,8 @@ export function Timetable({ columns: allColumns, sessions: allSessions, selected
   const columns = onlyMine
     ? allColumns.filter((c) => (c.kind === 'lane' ? selected.has(c.session.id) : sessions.some((s) => s.place === c.place.id)))
     : allColumns;
+  // won + picked the winning slot: the event's other application slots fade out
+  const wonPicked = wonEventsWithPick(allSessions, selected, apply);
   const ticketEvents = new Set(sessions.filter((s) => s.needs === 'ticket').map((s) => s.event));
   const groups = groupByArea(columns);
   const slots = timeSlots();
@@ -145,7 +148,8 @@ export function Timetable({ columns: allColumns, sessions: allSessions, selected
               session={s}
               column={colIndex.get(s.place ?? '') ?? 2}
               selected={selected.has(s.id)}
-              mine={s.needs === 'apply' ? apply[s.event] : undefined}
+              mine={s.needs === 'apply' && !isPassedOver(s, selected, wonPicked) ? apply[s.event] : undefined}
+              passed={isPassedOver(s, selected, wonPicked)}
               dimmed={matchSet !== null && !matchSet.has(s.event)}
               matched={matchSet !== null && matchSet.has(s.event)}
               onOpen={onOpen}

@@ -13,7 +13,7 @@ import {
   LANE_COL_PX,
   SUB_PX,
 } from '../src/lib/layout';
-import { buildPlan, hoursText, isOpenAt, resolveItem, selectedEvents, type Lookup } from '../src/lib/plan';
+import { buildPlan, hoursText, isOpenAt, isPassedOver, resolveItem, selectedEvents, wonEventsWithPick, type Lookup } from '../src/lib/plan';
 import { matchEvents } from '../src/lib/search';
 import { program } from '../src/data';
 
@@ -89,6 +89,24 @@ describe('plan', () => {
     expect(plan.conflicts).toEqual(new Set(['02/1', '14/1', '48/1']));
     expect(plan.moveBefore.get('14/1')).toMatchObject({ from: 'E', to: 'S' });
     expect(plan.moveBefore.get('48/1')).toMatchObject({ from: 'S', to: 'W' });
+  });
+
+  it('fades the other application slots once the won slot is picked', () => {
+    const s = (id: string) => sessionById.get(id)!;
+    const faded = (sel: string[], apply: Record<string, 'applied' | 'won' | 'lost'>) => {
+      const selected = new Set(sel);
+      const won = wonEventsWithPick(program.sessions, selected, apply);
+      return program.sessions.filter((x) => isPassedOver(x, selected, won)).map((x) => x.id);
+    };
+    expect(faded(['14/2'], { '14': 'won' })).toEqual(['14/1', '14/3', '14/4']);
+    expect(faded(['14/2', '14/3'], { '14': 'won' })).toEqual(['14/1', '14/4']);
+    // not yet won, or won but no slot picked yet: nothing fades
+    expect(faded(['14/2'], { '14': 'applied' })).toEqual([]);
+    expect(faded(['14/2'], {})).toEqual([]);
+    expect(faded([], { '14': 'won' })).toEqual([]);
+    // only the slots that need an application fade: the drop-in part and the ticketed meeting of 45 stay
+    expect(faded(['45/L2'], { '45': 'won' })).toEqual(['45/L1', '45/L3', '45/L4']);
+    expect(s('45/M').needs).toBe('ticket');
   });
 
   it('lists the events that have a selected session', () => {

@@ -2201,3 +2201,9 @@ a.btn-primary {
   border-left-color: var(--danger);
   background: #fff7f6;
 }
+
+/* detail sheet: slots other than the one the visitor won */
+.slot.is-passed > .slot-main,
+.slot.is-passed > .tag {
+  opacity: 0.45;
+}

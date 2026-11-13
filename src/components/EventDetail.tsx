@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import type { EventInfo, MyApply } from '../types';
 import { NEEDS_LABEL, program, sessionPlace, sessionsByEvent } from '../data';
 import { METHOD_LABEL, applyPhase, deadlineText } from '../lib/apply';
-import { hoursText, isOpenAt } from '../lib/plan';
+import { hoursText, isOpenAt, isPassedOver, wonEventsWithPick } from '../lib/plan';
 import { EventNo, MyApplyPicker, PhasePill } from './Badges';
 
 interface Props {
@@ -21,6 +21,7 @@ export function EventDetail({ event, selected, times, mine, nowMs, onToggle, onS
   const sessions = sessionsByEvent.get(event.no) ?? [];
   const ap = event.apply;
   const phase = ap ? applyPhase(ap, nowMs) : null;
+  const wonPicked = wonEventsWithPick(sessions, selected, mine ? { [event.no]: mine } : {});
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -152,8 +153,9 @@ export function EventDetail({ event, selected, times, mine, nowMs, onToggle, onS
           <ul className="slots">
             {sessions.map((s) => {
               const on = selected.has(s.id);
+              const passed = isPassedOver(s, selected, wonPicked);
               return (
-                <li key={s.id} className={'slot' + (on ? ' is-picked' : '')}>
+                <li key={s.id} className={'slot' + (on ? ' is-picked' : '') + (passed ? ' is-passed' : '')}>
                   <button
                     type="button"
                     className={'talk-pick' + (on ? ' is-on' : '')}

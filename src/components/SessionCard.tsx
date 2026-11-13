@@ -14,6 +14,8 @@ interface Props {
   mine: MyApply | undefined;
   dimmed: boolean; // search active and this card does not match
   matched: boolean; // search active and this card matches
+  /** another slot of this event is the one the visitor won: show this one faded */
+  passed?: boolean;
   /** narrow all-day lane: vertical title, no time row */
   lane?: boolean;
   /** draw this time range instead of the session's own (all-day events with a break) */
@@ -21,7 +23,7 @@ interface Props {
   onOpen: (eventNo: string) => void;
 }
 
-export function SessionCard({ session, column, selected, mine, dimmed, matched, lane = false, span, onOpen }: Props) {
+export function SessionCard({ session, column, selected, mine, dimmed, matched, passed = false, lane = false, span, onOpen }: Props) {
   const time = span ?? session;
   const rect = cardRect(time);
   const event = eventByNo.get(session.event);
@@ -33,7 +35,7 @@ export function SessionCard({ session, column, selected, mine, dimmed, matched, 
     (session.needs ?? 'free') +
     (selected ? ' is-selected' : '') +
     (mine === 'won' ? ' is-won' : '') +
-    (mine === 'lost' ? ' is-lost' : '') +
+    (mine === 'lost' || passed ? ' is-lost' : '') +
     (dimmed ? ' is-dimmed' : '') +
     (matched ? ' is-matched' : '');
   return (
@@ -43,7 +45,7 @@ export function SessionCard({ session, column, selected, mine, dimmed, matched, 
       style={{ gridRow: 2, gridColumn: column, top: rect.top, height: rect.height }}
       onClick={() => onOpen(session.event)}
       aria-pressed={selected}
-      title={`${session.event} ${time.start}-${time.end} ${title}${lane ? '（出入り自由）' : ''}`}
+      title={`${session.event} ${time.start}-${time.end} ${title}${lane ? '（出入り自由）' : ''}${passed ? '（別の回に当選）' : ''}`}
     >
       {lane ? (
         <span className="card-no">{session.event}</span>
