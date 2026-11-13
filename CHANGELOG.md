@@ -3,6 +3,10 @@
 バージョンは `package.json` の `version` と git タグ（`vX.Y.Z`）で管理します。
 機能追加は minor、修正は patch、保存形式の変更は major を上げます。
 
+## v1.4.2（2026-11-14）
+
+- 訪問数の計測先を専用サイト `tksc-openday2026.goatcounter.com` に変更（v1.4.1 の間の訪問は `fu-ji-p.goatcounter.com` 側に残る）。
+
 ## v1.4.1（2026-11-14）
 
 - GoatCounter による訪問数の匿名計測を追加（Cookie なし。宇科連70 と同じサイト `fu-ji-p.goatcounter.com` に、パス `/tksc-openday2026/` として記録される）。設定画面の「このアプリについて」に計測の旨を明記。

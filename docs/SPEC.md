@@ -1,4 +1,4 @@
-# 仕様書（v1.4.1）
+# 仕様書（v1.4.2）
 
 筑波宇宙センター特別公開2026（2026-11-28、10:00〜15:30）の非公式マイスケジュールアプリ。
 宇科連70 タイムテーブル（fu-ji-p/ukaren70 v1.5.0）をベースに、事前申込と整理券の管理を加えたものです。
@@ -12,7 +12,7 @@
 | データ | `data/program.json` をビルド時に import。実行時の通信なし |
 | テスト | Vitest（`tests/`、35 件） |
 | 公開 | GitHub Actions → GitHub Pages。テストが通らないと公開されない |
-| 計測 | GoatCounter（`index.html` にタグ 1 行、サイト `fu-ji-p.goatcounter.com`、Cookie なし、localhost からは送らない） |
+| 計測 | GoatCounter（`index.html` にタグ 1 行、サイト `tksc-openday2026.goatcounter.com`、Cookie なし、localhost からは送らない） |
 
 ```
 data/program.json          イベント・場所・セッションのデータ（唯一のデータ源）
