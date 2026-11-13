@@ -2148,3 +2148,33 @@ a.btn-primary {
   background: #fff;
   color: #145e57;
 }
+
+/* timetable filter: only what the visitor added */
+.only-mine {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px 3px 7px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--surface);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  user-select: none;
+}
+.only-mine input {
+  width: 15px;
+  height: 15px;
+  margin: 0;
+  accent-color: var(--accent);
+}
+.only-mine.is-on {
+  border-color: var(--accent);
+  background: #e8eef6;
+  color: var(--accent);
+}
+.tt-scroll[hidden] {
+  display: none;
+}

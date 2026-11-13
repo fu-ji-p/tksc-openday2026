@@ -29,12 +29,21 @@ interface Props {
   matchSet: Set<string> | null;
   /** minutes since midnight in JST on the event day, else null */
   nowMinutes: number | null;
+  /** show only what the visitor added to My Schedule */
+  onlyMine: boolean;
+  onOnlyMine: (on: boolean) => void;
   onOpen: (eventNo: string) => void;
 }
 
 const areaName = new Map(program.areas.map((a) => [a.id, a.name]));
 
-export function Timetable({ columns, sessions, selected, apply, matchSet, nowMinutes, onOpen }: Props) {
+export function Timetable({ columns: allColumns, sessions: allSessions, selected, apply, matchSet, nowMinutes, onlyMine, onOnlyMine, onOpen }: Props) {
+  // "only mine": keep the selected sessions and just the columns they sit in, so the grid shrinks to the visitor's own day
+  const sessions = onlyMine ? allSessions.filter((s) => selected.has(s.id)) : allSessions;
+  const columns = onlyMine
+    ? allColumns.filter((c) => (c.kind === 'lane' ? selected.has(c.session.id) : sessions.some((s) => s.place === c.place.id)))
+    : allColumns;
+  const ticketEvents = new Set(sessions.filter((s) => s.needs === 'ticket').map((s) => s.event));
   const groups = groupByArea(columns);
   const slots = timeSlots();
   const colIndex = new Map(columns.map((c, i) => [c.kind === 'place' ? c.place.id : c.key, i + 2]));
@@ -69,6 +78,10 @@ export function Timetable({ columns, sessions, selected, apply, matchSet, nowMin
   return (
     <div className="tt-wrap">
       <div className="legend">
+        <label className={'only-mine' + (onlyMine ? ' is-on' : '')}>
+          <input type="checkbox" checked={onlyMine} onChange={(e) => onOnlyMine(e.target.checked)} />
+          マイスケジュールに追加したイベントのみ
+        </label>
         <span className="legend-item need-apply">事前申込</span>
         <span className="legend-item need-ticket">整理券</span>
         <span className="legend-item need-first">先着順</span>
@@ -76,7 +89,12 @@ export function Timetable({ columns, sessions, selected, apply, matchSet, nowMin
         <span className="legend-item legend-ticket">🎫 整理券の配布開始</span>
         <span className="legend-note">細い列は終日（出入り自由）のイベント。色の帯が開催時間です</span>
       </div>
-      <div className="tt-scroll" ref={scrollRef}>
+      {onlyMine && columns.length === 0 && (
+        <p className="sched-empty">
+          まだ何も追加していません。チェックを外してイベントをタップし、行きたい回の ＋ を押すと、ここに自分の予定だけが並びます。
+        </p>
+      )}
+      <div className="tt-scroll" ref={scrollRef} hidden={onlyMine && columns.length === 0}>
         <div className="tt-grid" style={style}>
           <div className="tt-corner" style={{ gridRow: 1, gridColumn: 1 }} />
           {groups.map((g, gi) => {
@@ -155,7 +173,7 @@ export function Timetable({ columns, sessions, selected, apply, matchSet, nowMin
           {program.events.flatMap((e) =>
             (e.ticket?.slots ?? []).map((t) => {
               const col = colIndex.get(t.place);
-              if (!col) return null;
+              if (!col || (onlyMine && !ticketEvents.has(e.no))) return null;
               return (
                 <button
                   key={e.no + t.time}

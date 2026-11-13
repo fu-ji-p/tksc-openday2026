@@ -20,6 +20,7 @@ import { formatDateJa } from './lib/time';
 type View = 'timetable' | 'list' | 'apply' | 'schedule';
 
 const db: Lookup = { sessionById, eventByNo, areaOf: sessionArea };
+const ONLY_MINE_KEY = 'tksc-openday2026.onlyMine';
 const isKnown = (id: string) => sessionById.has(id);
 const gridColumns = buildColumns(
   program.areas.map((a) => a.id),
@@ -38,6 +39,23 @@ export default function App() {
   const [settingsOpen, setSettingsOpen] = useState(false);
   const close = useCallback(() => setOpenNo(null), []);
   const open = openNo ? eventByNo.get(openNo) : undefined;
+
+  // timetable filter "only what I added": a per-device convenience, remembered separately from the schedule itself
+  const [onlyMine, setOnlyMineState] = useState(() => {
+    try {
+      return window.localStorage.getItem(ONLY_MINE_KEY) === '1';
+    } catch {
+      return false;
+    }
+  });
+  const setOnlyMine = useCallback((on: boolean) => {
+    setOnlyMineState(on);
+    try {
+      window.localStorage.setItem(ONLY_MINE_KEY, on ? '1' : '0');
+    } catch {
+      /* private mode: keep it for this visit only */
+    }
+  }, []);
 
   const [query, setQuery] = useState('');
   const matchSet = useMemo(() => matchEvents(program.events, query), [query]);
@@ -140,6 +158,8 @@ export default function App() {
               apply={state.apply}
               matchSet={matchSet}
               nowMinutes={now.date === DATE ? now.minutes : null}
+              onlyMine={onlyMine}
+              onOnlyMine={setOnlyMine}
               onOpen={setOpenNo}
             />
           </main>
