@@ -1,0 +1,60 @@
+import { describe, expect, it } from 'vitest';
+import { eventByNo, sessionArea, sessionById } from '../src/data';
+import { areaMoves, cardRect, conflictingIds, groupByArea, minutesToOffset, GRID_START, SUB_PX } from '../src/lib/layout';
+import { buildPlan, resolveItem, selectedEvents, type Lookup } from '../src/lib/plan';
+import { matchEvents } from '../src/lib/search';
+import { program } from '../src/data';
+
+const db: Lookup = { sessionById, eventByNo, areaOf: sessionArea };
+
+describe('layout', () => {
+  it('places cards proportionally to their duration', () => {
+    expect(minutesToOffset(GRID_START)).toBe(0);
+    expect(cardRect({ start: '10:05', end: '11:00' })).toEqual({ top: SUB_PX, height: 11 * SUB_PX });
+    expect(cardRect({ start: '10:00', end: '10:00' }).height).toBe(SUB_PX);
+  });
+
+  it('groups the grid columns by area in E, S, C, W order', () => {
+    expect(groupByArea(program.places).map((g) => g.area)).toEqual(['E', 'S', 'C', 'W']);
+  });
+
+  it('detects overlaps but not back-to-back items', () => {
+    const a = { id: 'a', area: 'E' as const, start: '10:15', end: '11:15' };
+    const b = { id: 'b', area: 'S' as const, start: '11:15', end: '12:15' };
+    const c = { id: 'c', area: 'S' as const, start: '11:00', end: '11:30' };
+    expect(conflictingIds([a, b])).toEqual(new Set());
+    expect(conflictingIds([a, b, c])).toEqual(new Set(['a', 'b', 'c']));
+    expect(areaMoves([a, b])).toEqual([{ toId: 'b', from: 'E', to: 'S', gapMinutes: 0 }]);
+  });
+});
+
+describe('plan', () => {
+  it('resolves a fixed slot, a drop-in session and a pinned drop-in session', () => {
+    expect(resolveItem('14/2', {}, db)).toMatchObject({ start: '11:15', end: '12:15', timed: true, custom: false, area: 'S' });
+    expect(resolveItem('12', {}, db)).toMatchObject({ timed: false, area: 'S' });
+    expect(resolveItem('01', { '01': '11:00' }, db)).toMatchObject({ start: '11:00', end: '11:20', timed: true, custom: true });
+    expect(resolveItem('99/1', {}, db)).toBeNull();
+  });
+
+  it('sorts timed items, separates free ones, and reports conflicts and area moves', () => {
+    const plan = buildPlan(['48/1', '12', '14/1', '02/1', '99'], {}, db);
+    expect(plan.timed.map((x) => x.id)).toEqual(['02/1', '14/1', '48/1']);
+    expect(plan.free.map((x) => x.id)).toEqual(['12']);
+    expect(plan.conflicts).toEqual(new Set(['02/1', '14/1', '48/1']));
+    expect(plan.moveBefore.get('14/1')).toMatchObject({ from: 'E', to: 'S' });
+    expect(plan.moveBefore.get('48/1')).toMatchObject({ from: 'S', to: 'W' });
+  });
+
+  it('lists the events that have a selected session', () => {
+    expect(selectedEvents(['14/1', '14/2', '45', 'zz'], db)).toEqual(new Set(['14', '45']));
+  });
+});
+
+describe('search', () => {
+  it('matches number, title, place and category with AND and width folding', () => {
+    expect(matchEvents(program.events, '')).toBeNull();
+    expect(matchEvents(program.events, '宇宙飛行士講演')).toEqual(new Set(['48']));
+    expect(matchEvents(program.events, 'ＨＴＶ－Ｘ ゲーム')?.has('54')).toBe(true);
+    expect(matchEvents(program.events, 'スペースチャンバ 事前申込')).toEqual(new Set(['14']));
+  });
+});

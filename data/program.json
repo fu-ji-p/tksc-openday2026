@@ -1,0 +1,2260 @@
+{
+ "event": {
+  "name": "JAXA筑波宇宙センター特別公開2026",
+  "date": "2026-11-28",
+  "open": "10:00",
+  "close": "15:30",
+  "lastEntry": "15:00",
+  "site": "https://visit-tsukuba.jaxa.jp/2026openday/index.html",
+  "listUrl": "https://visit-tsukuba.jaxa.jp/2026openday/event_list.html",
+  "generatedFrom": [
+   "https://visit-tsukuba.jaxa.jp/2026openday/assets/data/events.js"
+  ],
+  "generatedAt": "2026-11-14"
+ },
+ "areas": [
+  {
+   "id": "E",
+   "name": "Eエリア"
+  },
+  {
+   "id": "S",
+   "name": "Sエリア"
+  },
+  {
+   "id": "C",
+   "name": "Cエリア"
+  },
+  {
+   "id": "W",
+   "name": "Wエリア"
+  }
+ ],
+ "places": [
+  {
+   "id": "SD",
+   "area": "E",
+   "code": "展示館",
+   "building": "展示館",
+   "room": "スペースドーム"
+  },
+  {
+   "id": "E2K",
+   "area": "E",
+   "code": "E-2",
+   "building": "広報・情報棟",
+   "room": "記者会見室"
+  },
+  {
+   "id": "E2F",
+   "area": "E",
+   "code": "E-2",
+   "building": "広報・情報棟",
+   "room": "広報普及室２"
+  },
+  {
+   "id": "E2AV",
+   "area": "E",
+   "code": "E-2",
+   "building": "広報・情報棟",
+   "room": "視聴覚室"
+  },
+  {
+   "id": "S3",
+   "area": "S",
+   "code": "S-3",
+   "building": "6mφ放射計スペースチャンバ棟",
+   "room": "1階ロビー"
+  },
+  {
+   "id": "S4",
+   "area": "S",
+   "code": "S-4",
+   "building": "8mφ放射計スペースチャンバ棟",
+   "room": ""
+  },
+  {
+   "id": "S10",
+   "area": "S",
+   "code": "S-10",
+   "building": "総合環境試験棟",
+   "room": "クリーンルーム"
+  },
+  {
+   "id": "C1S",
+   "area": "C",
+   "code": "C-1",
+   "building": "総合開発推進棟",
+   "room": "1階 小会議室"
+  },
+  {
+   "id": "C1S2",
+   "area": "C",
+   "code": "C-1",
+   "building": "総合開発推進棟",
+   "room": "2階 小会議室２"
+  },
+  {
+   "id": "C1MB",
+   "area": "C",
+   "code": "C-1",
+   "building": "総合開発推進棟",
+   "room": "2階 中会議室Ｂ"
+  },
+  {
+   "id": "C5",
+   "area": "C",
+   "code": "C-5/C-6",
+   "building": "宇宙飛行士養成棟／無重量環境試験棟",
+   "room": ""
+  },
+  {
+   "id": "W1",
+   "area": "W",
+   "code": "W-1",
+   "building": "電波試験棟",
+   "room": ""
+  },
+  {
+   "id": "W3",
+   "area": "W",
+   "code": "W-3",
+   "building": "宇宙実験棟",
+   "room": "大会議室"
+  }
+ ],
+ "events": [
+  {
+   "no": "01",
+   "title": "H-IIロケットツアー",
+   "areas": [
+    "E"
+   ],
+   "categories": [],
+   "placeText": "ロケット広場（屋外）",
+   "timeText": "午前の部 10:00～12:00／午前の部 13:00～15:30\n※毎時00・20・40分に出発",
+   "summary": "H-IIロケット実機を一周しながら解説を聞くツアー。毎時00・20・40分に出発。",
+   "participation": [],
+   "note": "雨天・強風時は中止または内容変更の可能性があります。",
+   "duration": "約20分"
+  },
+  {
+   "no": "02",
+   "title": "手話案内ツアー",
+   "areas": [
+    "E"
+   ],
+   "categories": [
+    "展示"
+   ],
+   "placeText": "展示館「スペースドーム」",
+   "timeText": "①10:05～11:00 ②11:05～12:00 ③13:05～14:00",
+   "summary": "スペースドームを手話で案内するツアー（手話ができる方と同伴者向け）。",
+   "participation": [
+    "事前申込"
+   ],
+   "target": "手話が出来る人やその同伴者専用のイベントです",
+   "apply": {
+    "method": "lottery",
+    "pending": false,
+    "start": "2026-10-20T10:00:00+09:00",
+    "end": "2026-11-23T23:59:59+09:00",
+    "url": "https://forms.cloud.microsoft/r/ZTJfXGvWSZ",
+    "note": "応募者多数の場合は抽選となります",
+    "result": "11/24(火) 17:00 までに応募者全員へメールで連絡（参加可否と時間帯）",
+    "resultBy": "2026-11-24T17:00:00+09:00"
+   }
+  },
+  {
+   "no": "03",
+   "title": "手話で宇宙を語ろう",
+   "areas": [
+    "E"
+   ],
+   "categories": [],
+   "placeText": "E-2 広報・情報棟 記者会見室",
+   "timeText": "14:10～15:30",
+   "summary": "宇宙の質問に手話や筆談で答えるコーナー。宇宙手話の紹介も。",
+   "participation": []
+  },
+  {
+   "no": "04",
+   "title": "JAXA職員に聞いてみよう！～自分が選んだ進路と仕事のお話～",
+   "areas": [
+    "E"
+   ],
+   "categories": [
+    "講演・トークショー"
+   ],
+   "placeText": "E-2 広報・情報棟 記者会見室",
+   "timeText": "①10:15～11:00(先着順)\n②12:45～13:30(整理券)",
+   "summary": "JAXA女性職員が進路選択やキャリアを語るトーク。①は先着順、②は整理券。",
+   "participation": [
+    "整理券",
+    "先着順"
+   ],
+   "note": "②12:45～の回は整理券が必要です",
+   "duration": "各回45分",
+   "firstCome": "50名 ※先着順は10:15から始まる講演です",
+   "ticket": {
+    "time": "12:00～　※12:45から始まる講演の整理券です",
+    "place": "E-2 広報・情報棟 記者会見室前",
+    "target": "②12:45～の回",
+    "count": "50枚"
+   }
+  },
+  {
+   "no": "05",
+   "title": "科学×デザイン：南極から思い描く服を作ってみよう",
+   "areas": [
+    "E"
+   ],
+   "categories": [
+    "新イベント",
+    "工作",
+    "展示",
+    "体験"
+   ],
+   "placeText": "E-2 広報・情報棟 広報普及室１",
+   "timeText": "10:00～15:30",
+   "summary": "衛星画像を織り込んだジーンズの紹介と、ミニチュアの服づくりワークショップ。",
+   "participation": [
+    "事前申込"
+   ],
+   "apply": {
+    "method": "lottery",
+    "pending": false,
+    "start": "2026-10-20T10:00:00+09:00",
+    "end": "2026-11-15T15:00:00+09:00",
+    "url": "https://forms.cloud.microsoft/r/AuL3gR8Fxu",
+    "note": "応募者多数の場合は抽選となります",
+    "result": "11/17(火) までに当選者のみへメールで通知",
+    "resultBy": "2026-11-17T23:59:00+09:00"
+   }
+  },
+  {
+   "no": "06",
+   "title": "プロマネミニトーク～「みちびき」と「ソクイ」の今とこれから～",
+   "areas": [
+    "E"
+   ],
+   "categories": [
+    "講演・トークショー"
+   ],
+   "placeText": "E-2 広報・情報棟 広報普及室２",
+   "timeText": "①11:00～12:00 ②13:00～14:00",
+   "summary": "「みちびき」と測位の今とこれからをプロジェクトマネージャが話すミニトーク。",
+   "participation": [
+    "事前申込"
+   ],
+   "apply": {
+    "method": "first",
+    "pending": false,
+    "start": "2026-10-20T10:00:00+09:00",
+    "end": "2026-11-28T13:00:00+09:00",
+    "url": "https://bookings.cloud.microsoft/book/Bookings2831027@jaxa.jp/?ismsaljsauthenabled",
+    "note": "事前申込は先着順となります。定員に達し次第、受付を終了いたします。",
+    "result": "先着順。公式の案内では「当日までに当選者のみへメールで通知」"
+   }
+  },
+  {
+   "no": "07",
+   "title": "My Earthミニトーク～「宇宙から見る地球」を味わおう!～",
+   "areas": [
+    "E"
+   ],
+   "categories": [
+    "新イベント",
+    "講演・トークショー",
+    "お子様も楽しめる"
+   ],
+   "placeText": "E-2 広報・情報棟 視聴覚室",
+   "timeText": "①10:00 ②10:30 ③11:00 ④11:30 ⑤12:00 ⑥12:30\n※各回約15分",
+   "summary": "地球観測衛星で見る地球の楽しみ方をファミリー向けに話すミニトーク（各回約15分）。",
+   "participation": [
+    "事前申込"
+   ],
+   "note": "事前申込に加え、当日参加枠ございます。",
+   "apply": {
+    "method": "first",
+    "pending": false,
+    "start": "2026-10-20T00:00:00+09:00",
+    "end": "2026-11-27T23:00:00+09:00",
+    "url": "https://bookings.cloud.microsoft/book/MyEarth@jaxa.jp/?ismsaljsauthenabled",
+    "note": "事前申込は先着順となります。定員に達し次第、受付を終了いたします。",
+    "result": "先着順（予約できれば確定）。当日参加枠もあり"
+   }
+  },
+  {
+   "no": "08",
+   "title": "めざせ！地球のお医者さん～地球観測衛星クイズ大会～",
+   "areas": [
+    "E"
+   ],
+   "categories": [
+    "講演・トークショー",
+    "お子様も楽しめる"
+   ],
+   "placeText": "E-2 広報・情報棟 視聴覚室",
+   "timeText": "①13:00 ②13:40 ③14:20 ④15:00\n※各回約20分",
+   "summary": "地球観測衛星のクイズ大会。全問正解でグッズ（各回約20分）。",
+   "participation": [
+    "事前申込"
+   ],
+   "note": "事前申込に加え、当日参加枠ございます。",
+   "apply": {
+    "method": "first",
+    "pending": false,
+    "start": "2026-10-20T00:00:00+09:00",
+    "end": "2026-11-27T23:00:00+09:00",
+    "url": "https://bookings.cloud.microsoft/book/Bookings2719364@jaxa.jp/?ismsaljsauthenabled",
+    "note": "事前申込は先着順となります。定員に達し次第、受付を終了いたします。",
+    "result": "先着順（予約できれば確定）。当日参加枠もあり"
+   }
+  },
+  {
+   "no": "09",
+   "title": "アンテナ📡博士の実験教室",
+   "areas": [
+    "E"
+   ],
+   "categories": [
+    "お子様も楽しめる"
+   ],
+   "placeText": "E-5 追跡管制棟",
+   "timeText": "10:00～15:30",
+   "summary": "アンテナのしくみを博士が実験で説明（約3分）。",
+   "participation": []
+  },
+  {
+   "no": "10",
+   "title": "1年1回この日だけ！追跡中央管制室ツアー",
+   "areas": [
+    "E"
+   ],
+   "categories": [
+    "施設見学",
+    "お子様も楽しめる"
+   ],
+   "placeText": "E-5 追跡管制棟 第１会議室",
+   "timeText": "10:00～15:30（15:00受付終了）\n※所要時間は約10分",
+   "summary": "年に1回だけ公開される追跡中央管制室の見学ツアー（約10分、15:00受付終了）。",
+   "participation": [],
+   "note": "一部撮影NG場所あり"
+  },
+  {
+   "no": "11",
+   "title": "美笹局来場当選者記念品配布場所",
+   "areas": [
+    "E"
+   ],
+   "categories": [],
+   "placeText": "E-5 追跡管制棟",
+   "timeText": "10:00～15:30",
+   "summary": "中止になった美笹局特別公開の当選者向け記念品の配布場所。",
+   "participation": []
+  },
+  {
+   "no": "12",
+   "title": "実物大を見上げて体感！宇宙ごみ除去と宇宙環境の未来",
+   "areas": [
+    "S"
+   ],
+   "categories": [
+    "新イベント",
+    "展示"
+   ],
+   "placeText": "S-1 衛星試験棟 ３２室",
+   "timeText": "10:15～14:30",
+   "summary": "捕獲をめざす宇宙ごみの実物大タペストリー展示。先着150名。",
+   "participation": [],
+   "firstCome": "150名"
+  },
+  {
+   "no": "13",
+   "title": "ロケット再使用への挑戦 再使用ロケット実験機RV-X",
+   "areas": [
+    "S"
+   ],
+   "categories": [
+    "新イベント",
+    "講演・トークショー",
+    "展示",
+    "映像",
+    "お子様も楽しめる"
+   ],
+   "placeText": "S-3 6mφ放射計スペースチャンバ棟 １階ロビー",
+   "timeText": "10:00～15:30",
+   "summary": "再使用ロケット実験機 RV-X の映像・パネル展示と、実験主任による講演。",
+   "participation": [],
+   "note": "講演時間 ①11:00～11:30 ②12:00～12:30 ③13:45～14:15 ④14:45～15:15"
+  },
+  {
+   "no": "14",
+   "title": "あなたが最後の試験体?! 8mφスペースチャンバ内部公開",
+   "areas": [
+    "S"
+   ],
+   "categories": [
+    "新イベント",
+    "展示",
+    "施設見学",
+    "お子様も楽しめる"
+   ],
+   "placeText": "S-4 8mφ放射計スペースチャンバ棟",
+   "timeText": "①10:15～11:15 ②11:15～12:15\n③13:15～14:15 ④14:15～15:15",
+   "summary": "巨大な試験設備スペースチャンバの内部に入れる公開（各回20名）。",
+   "participation": [
+    "事前申込"
+   ],
+   "capacity": "各回20名",
+   "apply": {
+    "method": "lottery",
+    "pending": false,
+    "start": "2026-10-23T00:00:00+09:00",
+    "end": "2026-11-17T23:59:59+09:00",
+    "url": "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=Zmk96zt7UU-8KeWxlOc8HsISAhhRZzJBhRqaEto71bxUOTZON1pJTVZFWFNKU1JYWUFFWFU4TzRMTy4u",
+    "note": "応募者多数の場合は抽選となります",
+    "result": "11/20(金) までに応募者全員へメールで通知",
+    "resultBy": "2026-11-20T23:59:00+09:00"
+   }
+  },
+  {
+   "no": "15",
+   "title": "宇宙光通信を体験しよう！",
+   "areas": [
+    "S"
+   ],
+   "categories": [
+    "新イベント",
+    "展示",
+    "体験",
+    "お子様も楽しめる"
+   ],
+   "placeText": "S-6 研究開発棟１階",
+   "timeText": "10:00～15:30",
+   "summary": "レーザー光でのデータ送信を体験。衛星通信機器の実物展示も。",
+   "participation": []
+  },
+  {
+   "no": "16",
+   "title": "体験しよう！宇宙機を支える「電源技術」",
+   "areas": [
+    "S"
+   ],
+   "categories": [
+    "展示",
+    "体験",
+    "お子様も楽しめる"
+   ],
+   "placeText": "S-6 研究開発棟 １階ロビー",
+   "timeText": "10:00～15:00",
+   "summary": "宇宙機の電源技術をゲームで体験。",
+   "participation": []
+  },
+  {
+   "no": "17",
+   "title": "のぞいてみよう！大きな衛星をささえる小さな電子部品",
+   "areas": [
+    "S"
+   ],
+   "categories": [
+    "新イベント",
+    "展示",
+    "映像",
+    "お子様も楽しめる"
+   ],
+   "placeText": "S-6 研究開発棟 １階ロビー",
+   "timeText": "10:15～14:45",
+   "summary": "ロケットや衛星を支える小さな電子部品を観察。",
+   "participation": [],
+   "target": "どなたでも"
+  },
+  {
+   "no": "18",
+   "title": "触って体験！！大きな鏡をピッタリ合わせる精密技術！ ～OSCAR-Jプロジェクトが挑む巨大宇宙望遠鏡～",
+   "areas": [
+    "S"
+   ],
+   "categories": [
+    "新イベント",
+    "展示",
+    "体験",
+    "お子様も楽しめる"
+   ],
+   "placeText": "S-6 研究開発棟 １階",
+   "timeText": "10:15～15:15（途中休憩時間を挟む可能性あり）",
+   "summary": "宇宙望遠鏡の鏡合わせの精密調整をゲームで体験。",
+   "participation": []
+  },
+  {
+   "no": "19",
+   "title": "当日限定！大型衛星試験設備を間近で見学する特別ツアー ～普段は入ることのできないクリーンルームの中へ～",
+   "areas": [
+    "S"
+   ],
+   "categories": [
+    "新イベント",
+    "展示",
+    "映像",
+    "施設見学",
+    "お子様も楽しめる"
+   ],
+   "placeText": "S-10 総合環境試験棟 クリーンルーム",
+   "timeText": "①10:15～11:15 ②11:30～12:30\n③12:45～13:45 ④14:00～15:00",
+   "summary": "クリーンルームに入って大型衛星試験設備を間近で見る特別ツアー（各回20名）。",
+   "participation": [
+    "事前申込"
+   ],
+   "capacity": "各回20名",
+   "apply": {
+    "method": "lottery",
+    "pending": false,
+    "start": "2026-10-23T00:00:00+09:00",
+    "end": "2026-11-17T23:59:59+09:00",
+    "url": "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=Zmk96zt7UU-8KeWxlOc8HsISAhhRZzJBhRqaEto71bxUMFJGV09QQzlRN01YM1E4V0VTTzFWUUNUSS4u",
+    "note": "応募者多数の場合は抽選となります。\n本イベントは安全上の理由、および無塵衣着用の都合から、ベビーカー、車いす、身長130cm未満の方のご参加はご遠慮いただいております。",
+    "result": "11/20(金) までに応募者全員へメールで通知",
+    "resultBy": "2026-11-20T23:59:00+09:00"
+   }
+  },
+  {
+   "no": "20",
+   "title": "水ロケット打上げ体験",
+   "areas": [
+    "C"
+   ],
+   "categories": [
+    "体験",
+    "お子様も楽しめる"
+   ],
+   "placeText": "グランド",
+   "timeText": "午前の部10:00～12:00（受付は11:30まで）\n午後の部13:30～15:30（受付は15:00まで）\n※混雑状況によっては早めに受付を終了する場合がございます",
+   "summary": "水ロケットの打上げ体験（工作なし）。受付は午前11:30・午後15:00まで。",
+   "participation": [],
+   "note": "強風雨の時は中止します"
+  },
+  {
+   "no": "21",
+   "title": "EarthCAREこいのぼり",
+   "areas": [
+    "C"
+   ],
+   "categories": [
+    "展示",
+    "お子様も楽しめる"
+   ],
+   "placeText": "C-1 総合開発推進棟前のロータリー",
+   "timeText": "10:00～15:30",
+   "summary": "EarthCARE（はくりゅう）のこいのぼり展示。",
+   "participation": [],
+   "note": "強風雨の時は中止します"
+  },
+  {
+   "no": "22",
+   "title": "EarthCARE実物大タペストリー",
+   "areas": [
+    "C"
+   ],
+   "categories": [
+    "展示",
+    "お子様も楽しめる"
+   ],
+   "placeText": "C-1 総合開発推進棟 １階ロビー壁面",
+   "timeText": "10:00～15:30",
+   "summary": "EarthCARE の実物大タペストリー展示。",
+   "participation": []
+  },
+  {
+   "no": "23",
+   "title": "ノーサテライト・ノーらいふ",
+   "areas": [
+    "C"
+   ],
+   "categories": [
+    "工作",
+    "体験",
+    "お子様も楽しめる"
+   ],
+   "placeText": "C-1 総合開発推進棟 １階 ホワイエ",
+   "timeText": "10:00～15:30",
+   "summary": "オリジナル人工衛星を作って自撮りする工作体験（約1時間）。予約ページでは10:30〜14:30の30分ごと・計8枠。",
+   "participation": [
+    "事前申込"
+   ],
+   "note": "所要時間：１時間",
+   "capacity": "全8回、各回先着3組まで（1組あたりお連れ様3名まで）",
+   "duration": "１時間",
+   "apply": {
+    "method": "first",
+    "pending": false,
+    "start": "2026-11-10T10:00:00+09:00",
+    "end": "2026-11-27T23:00:00+09:00",
+    "url": "https://bookings.cloud.microsoft/book/satelife_TKSC2026@jaxa.jp/?ismsaljsauthenabled",
+    "result": "先着順（予約できれば確定）。キャンセルが出ると空きが出ます。締切は変更の可能性あり"
+   }
+  },
+  {
+   "no": "24",
+   "title": "今日も、はたらく人工衛星",
+   "areas": [
+    "C"
+   ],
+   "categories": [],
+   "placeText": "C-1 総合開発推進棟 １階 ラウンジ",
+   "timeText": "10:00～15:30",
+   "summary": "人工衛星の基礎と、衛星地球観測の重点テーマのポスター紹介。",
+   "participation": []
+  },
+  {
+   "no": "25",
+   "title": "半世紀を超える「きく」シリーズを紹介！ ～技術試験衛星の軌跡と未来～",
+   "areas": [
+    "C"
+   ],
+   "categories": [
+    "展示",
+    "体験"
+   ],
+   "placeText": "C-1 総合開発推進棟 １階 ラウンジ",
+   "timeText": "10:00～15:30",
+   "summary": "「きく9号」と歴代「きく」シリーズを模型と動画で紹介。",
+   "participation": []
+  },
+  {
+   "no": "26",
+   "title": "「ソクイ」の将来は？",
+   "areas": [
+    "C"
+   ],
+   "categories": [
+    "展示",
+    "映像",
+    "お子様も楽しめる"
+   ],
+   "placeText": "C-1 総合開発推進棟 １階 大会議室",
+   "timeText": "10:00～15:30",
+   "summary": "測位の取り組みをポスター・展示・ミニクイズで紹介。",
+   "participation": []
+  },
+  {
+   "no": "27",
+   "title": "だいち2号/4号で地球を観る",
+   "areas": [
+    "C"
+   ],
+   "categories": [
+    "展示",
+    "お子様も楽しめる"
+   ],
+   "placeText": "C-1 総合開発推進棟 １階 大会議室",
+   "timeText": "10:00～15:30",
+   "summary": "災害時に活躍する「だいち2号・4号」の観測技術の紹介。",
+   "participation": []
+  },
+  {
+   "no": "28",
+   "title": "ここはどこかな？ 「だいち4号」の画像から場所を当てよう！",
+   "areas": [
+    "C"
+   ],
+   "categories": [
+    "体験",
+    "お子様も楽しめる"
+   ],
+   "placeText": "C-1 総合開発推進棟 １階 大会議室",
+   "timeText": "10:00～15:30",
+   "summary": "「だいち」の画像から場所を当てるクイズ体験。",
+   "participation": []
+  },
+  {
+   "no": "29",
+   "title": "雨～ジング！PMMで雨が見える！",
+   "areas": [
+    "C"
+   ],
+   "categories": [
+    "展示",
+    "体験",
+    "お子様も楽しめる"
+   ],
+   "placeText": "C-1 総合開発推進棟 １階 大会議室",
+   "timeText": "10:00～15:30",
+   "summary": "クイズと AR で雨の観測（PMM）を体験。ミッションマーク投票も。",
+   "participation": []
+  },
+  {
+   "no": "30",
+   "title": "きみもJAXA研究員！？",
+   "areas": [
+    "C"
+   ],
+   "categories": [
+    "展示",
+    "体験",
+    "映像",
+    "お子様も楽しめる"
+   ],
+   "placeText": "C-1 総合開発推進棟 １階 大会議室",
+   "timeText": "10:00～15:30",
+   "summary": "いぶき・AMSR シリーズの謎解きで研究員気分を体験。",
+   "participation": []
+  },
+  {
+   "no": "31",
+   "title": "いぶきシリーズと記念撮影しよう！",
+   "areas": [
+    "C"
+   ],
+   "categories": [
+    "体験",
+    "映像",
+    "お子様も楽しめる"
+   ],
+   "placeText": "C-1 総合開発推進棟 １階 大会議室",
+   "timeText": "10:00～15:30",
+   "summary": "「いぶき」「いぶきGW」と記念撮影。",
+   "participation": []
+  },
+  {
+   "no": "32",
+   "title": "打上げか？延期か？「ロケット GO／NO GO判断会議」",
+   "areas": [
+    "C"
+   ],
+   "categories": [
+    "体験"
+   ],
+   "placeText": "C-1 総合開発推進棟 １階 小会議室",
+   "timeText": "①10:15～11:15 ②11:15～12:15 ③12:15～13:15\n④13:15～14:15 ⑤14:15～15:15",
+   "summary": "打上げ隊の一員になり、制限時間内に打上げ続行か延期かを判断する体験。",
+   "participation": [
+    "事前申込"
+   ],
+   "note": "申込情報は準備中です",
+   "apply": {
+    "method": "lottery",
+    "pending": false,
+    "start": "2026-11-16T12:00:00+09:00",
+    "end": "2026-11-22T23:45:00+09:00",
+    "url": "https://forms.cloud.microsoft/r/1nhskUGdMh",
+    "result": "11/24(火) に応募者全員へメールで通知",
+    "resultBy": "2026-11-24T23:59:00+09:00"
+   }
+  },
+  {
+   "no": "33",
+   "title": "ミッション「高度計ライダーってなんだ!?」",
+   "areas": [
+    "C"
+   ],
+   "categories": [
+    "展示",
+    "体験",
+    "お子様も楽しめる"
+   ],
+   "placeText": "C-1 総合開発推進棟 ２階 小会議室１",
+   "timeText": "①10:00～12:00 ②13:00～15:30",
+   "summary": "ミニ装置で高度計ライダーのしくみを学ぶ。クイズあり。",
+   "participation": []
+  },
+  {
+   "no": "34",
+   "title": "衛星人生すごろくで地球観測衛星の運用を学ぼう！",
+   "areas": [
+    "C"
+   ],
+   "categories": [
+    "新イベント",
+    "展示",
+    "体験",
+    "お子様も楽しめる"
+   ],
+   "placeText": "C-1 総合開発推進棟 ２階 小会議室２",
+   "timeText": "①10:15～　②11:00～　③11:45～\n④13:15～　⑤14:00～　⑥14:45～",
+   "summary": "手作りの「衛星人生すごろく」で地球観測衛星の運用を学ぶ（整理券）。",
+   "participation": [
+    "整理券"
+   ],
+   "ticket": {
+    "time": "10:00～、13:00～",
+    "place": "C-1 総合開発推進棟 ２階 小会議室２"
+   }
+  },
+  {
+   "no": "35",
+   "title": "Hear the Earth -地球が聞こえる-",
+   "areas": [
+    "C"
+   ],
+   "categories": [
+    "展示",
+    "体験",
+    "映像",
+    "お子様も楽しめる"
+   ],
+   "placeText": "C-1 総合開発推進棟 ２階 小会議室３",
+   "timeText": "10:00～15:30",
+   "summary": "地球観測データを映像と音楽にした体験展示。",
+   "participation": []
+  },
+  {
+   "no": "36",
+   "title": "宇宙の大気を燃料に。新たなイオンエンジンの実証へ。",
+   "areas": [
+    "C"
+   ],
+   "categories": [
+    "新イベント",
+    "展示",
+    "映像",
+    "お子様も楽しめる"
+   ],
+   "placeText": "C-1 総合開発推進棟 ２階 中会議室Ａ",
+   "timeText": "10:00～15:30",
+   "summary": "宇宙に残るわずかな大気を燃料にする新しいイオンエンジンの紹介。",
+   "participation": []
+  },
+  {
+   "no": "37",
+   "title": "EarthCAREの魅力を知ろう！",
+   "areas": [
+    "C"
+   ],
+   "categories": [
+    "工作",
+    "展示",
+    "体験",
+    "映像"
+   ],
+   "placeText": "C-1 総合開発推進棟 ２階 中会議室Ａ",
+   "timeText": "10:00～15:30",
+   "summary": "EarthCARE のポスター展示。グッズあり。",
+   "participation": []
+  },
+  {
+   "no": "38",
+   "title": "立体的なEarthCAREデータに触れてみよう！",
+   "areas": [
+    "C"
+   ],
+   "categories": [
+    "新イベント",
+    "展示",
+    "体験",
+    "映像",
+    "お子様も楽しめる"
+   ],
+   "placeText": "C-1 総合開発推進棟 ２階 中会議室Ａ",
+   "timeText": "10:00～15:30",
+   "summary": "EarthCARE の観測データを 3D で見る体験。",
+   "participation": []
+  },
+  {
+   "no": "39",
+   "title": "真空で起こる出来事を実験！",
+   "areas": [
+    "C"
+   ],
+   "categories": [
+    "講演・トークショー",
+    "体験",
+    "お子様も楽しめる"
+   ],
+   "placeText": "C-1 総合開発推進棟 ２階中会議室Ｂ",
+   "timeText": "10:00～15:30",
+   "summary": "自分の力で真空を作って、大気との違いを確かめる実験。",
+   "participation": []
+  },
+  {
+   "no": "40",
+   "title": "顕微鏡に触れてみよう！",
+   "areas": [
+    "C"
+   ],
+   "categories": [
+    "講演・トークショー",
+    "体験",
+    "お子様も楽しめる"
+   ],
+   "placeText": "C-1 総合開発推進棟 ２階中会議室Ｂ",
+   "timeText": "①10:30～11:00 ➁11:30～12:00 ③12:30～13:00\n④13:30-14:00 ⑤14:30-15:00",
+   "summary": "顕微鏡体験（整理券不要）と、宇宙部品と同じ方法で髪の毛を観察する回（整理券）。",
+   "participation": [
+    "整理券"
+   ],
+   "note": "顕微鏡体験は整理券不要です",
+   "ticket": {
+    "time": "10:00～（①②③の回） 12:00～（④⑤の回）",
+    "place": "総合開発推進棟前ロータリー入り口",
+    "target": "髪の毛観察",
+    "count": "各回15枚"
+   }
+  },
+  {
+   "no": "41",
+   "title": "宇宙用部品の展示",
+   "areas": [
+    "C"
+   ],
+   "categories": [
+    "展示"
+   ],
+   "placeText": "C-1 総合開発推進棟 ２階中会議室Ｂ",
+   "timeText": "10:00～15:30",
+   "summary": "ロケットや衛星に載る JAXA 認定部品の紹介。",
+   "participation": []
+  },
+  {
+   "no": "42",
+   "title": "スペースデブリ ～宇宙の脅威～",
+   "areas": [
+    "C"
+   ],
+   "categories": [
+    "講演・トークショー",
+    "展示",
+    "映像",
+    "お子様も楽しめる"
+   ],
+   "placeText": "C-1 総合開発推進棟 ２階中会議室Ｂ",
+   "timeText": "10:00～15:30",
+   "summary": "デブリ衝突試験の映像と貫通痕の展示。簡単デブリ講座も。",
+   "participation": []
+  },
+  {
+   "no": "43",
+   "title": "CubeSatの展示",
+   "areas": [
+    "C"
+   ],
+   "categories": [
+    "新イベント",
+    "展示",
+    "映像",
+    "お子様も楽しめる"
+   ],
+   "placeText": "C-1 総合開発推進棟 ２階中会議室Ｂ",
+   "timeText": "10:00～15:30",
+   "summary": "手のひらサイズの衛星 CubeSat を模型と映像で紹介。",
+   "participation": []
+  },
+  {
+   "no": "44",
+   "title": "天体も地球も守る 惑星保護ってなぁに？",
+   "areas": [
+    "C"
+   ],
+   "categories": [
+    "新イベント",
+    "展示",
+    "お子様も楽しめる"
+   ],
+   "placeText": "C-1 総合開発推進棟 ２階中会議室Ｂ",
+   "timeText": "10:00～15:30",
+   "summary": "惑星保護とは何か、探査機の「見えない汚れ」を紹介。",
+   "participation": []
+  },
+  {
+   "no": "45",
+   "title": "来場者みんなで諏訪宇宙飛行士のミッション応援企画！",
+   "areas": [
+    "C"
+   ],
+   "categories": [
+    "新イベント",
+    "講演・トークショー",
+    "展示",
+    "体験",
+    "映像",
+    "施設見学",
+    "お子様も楽しめる"
+   ],
+   "placeText": "C-5 宇宙飛行士養成棟／C-6 無重量環境試験棟",
+   "timeText": "10:00～15:30",
+   "summary": "諏訪宇宙飛行士のミッション応援企画。入退場自由の体験エリアのほか、専門家と話すラウンジ（事前申込）と整理券制のミーティングがある。",
+   "participation": [
+    "事前申込",
+    "整理券"
+   ],
+   "apply": {
+    "method": "tbd",
+    "pending": true,
+    "target": "ラウンジ\"つなぐ\""
+   },
+   "ticket": {
+    "time": "10:00～",
+    "place": "C-5 宇宙飛行士養成棟前",
+    "target": "ミーティング\"つなぐ\""
+   }
+  },
+  {
+   "no": "46",
+   "title": "【超レア⁉】電波試験設備に潜入😎 ～巨大なトゲトゲの謎に迫る～",
+   "areas": [
+    "W"
+   ],
+   "categories": [
+    "新イベント",
+    "展示",
+    "体験",
+    "施設見学"
+   ],
+   "placeText": "W-1 電波試験棟",
+   "timeText": "①10:15～11:15 ②11:15～12:15\n③13:15～14:15 ④14:15～15:15",
+   "summary": "トゲトゲに囲まれた電波試験設備の内部を見学（各回20名）。",
+   "participation": [
+    "事前申込"
+   ],
+   "capacity": "各回20名",
+   "apply": {
+    "method": "lottery",
+    "pending": false,
+    "start": "2026-10-23T00:00:00+09:00",
+    "end": "2026-11-17T23:59:59+09:00",
+    "url": "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=Zmk96zt7UU-8KeWxlOc8HsISAhhRZzJBhRqaEto71bxUQUcwSlIwWjRHRlVWRE5YNDRTVlBQTUxKNi4u",
+    "note": "応募者多数の場合は抽選となります。\n本イベントは安全上の理由、および無塵衣着用の都合から、ベビーカー、車いす、身長130cm未満の方のご参加はご遠慮いただいております。",
+    "result": "11/20(金) までに応募者全員へメールで通知",
+    "resultBy": "2026-11-20T23:59:00+09:00"
+   }
+  },
+  {
+   "no": "47",
+   "title": "有人運用管制室ツアー",
+   "areas": [
+    "W"
+   ],
+   "categories": [
+    "講演・トークショー",
+    "展示",
+    "映像",
+    "施設見学",
+    "お子様も楽しめる"
+   ],
+   "placeText": "W-2 宇宙ステーション運用棟",
+   "timeText": "10:00～15:30（最終入場15:00)",
+   "summary": "「きぼう」や HTV-X の管制室を見学できるツアー（最終入場15:00）。",
+   "participation": [],
+   "note": "※運用状況によっては見学できない場合があります"
+  },
+  {
+   "no": "48",
+   "title": "宇宙飛行士講演",
+   "areas": [
+    "W"
+   ],
+   "categories": [
+    "講演・トークショー",
+    "お子様も楽しめる"
+   ],
+   "placeText": "W-3 宇宙実験棟 大会議室",
+   "timeText": "①10:30～11:15 ②13:15～14:00 ③14:30～15:15",
+   "summary": "油井宇宙飛行士の講演。ISS での生活や宇宙からの景色の話。",
+   "participation": [
+    "事前申込"
+   ],
+   "note": "申込情報は準備中です",
+   "apply": {
+    "method": "tbd",
+    "pending": true
+   }
+  },
+  {
+   "no": "49",
+   "title": "のぞいてみよう！宇宙実験の世界",
+   "areas": [
+    "W"
+   ],
+   "categories": [
+    "講演・トークショー",
+    "展示",
+    "お子様も楽しめる"
+   ],
+   "placeText": "W-3 宇宙実験棟 会議室２、３",
+   "timeText": "10:00～15:30",
+   "summary": "「きぼう」での宇宙実験の紹介。ミニセミナーやクイズも。",
+   "participation": []
+  },
+  {
+   "no": "50",
+   "title": "みんなでかんがえよう！未来の宇宙実験",
+   "areas": [
+    "W"
+   ],
+   "categories": [
+    "講演・トークショー",
+    "体験",
+    "お子様も楽しめる"
+   ],
+   "placeText": "W-3 宇宙実験棟 大会議室",
+   "timeText": "11:45～12:30",
+   "summary": "宇宙飛行士・宇宙キャスターと未来の宇宙実験を考えるイベント。",
+   "participation": [
+    "事前申込"
+   ],
+   "note": "申込情報は準備中です\n事前申込の状況によっては、整理券配布を行う可能性があります",
+   "apply": {
+    "method": "tbd",
+    "pending": true
+   }
+  },
+  {
+   "no": "51",
+   "title": "月を走るくるま！？有人与圧ローバー徹底解剖！",
+   "areas": [
+    "W"
+   ],
+   "categories": [
+    "展示",
+    "体験",
+    "お子様も楽しめる"
+   ],
+   "placeText": "W-4 宇宙ステーション運用棟",
+   "timeText": "10:00～15:30",
+   "summary": "有人与圧ローバーの模型・パネル展示とドライビングシミュレータ（本格版は事前申込、簡易版は予約なし）。",
+   "participation": [
+    "事前申込"
+   ],
+   "note": "申込情報は準備中です",
+   "apply": {
+    "method": "tbd",
+    "pending": true,
+    "target": "ドライビングシミュレータ"
+   }
+  },
+  {
+   "no": "52",
+   "title": "LUPEXと行く！月面たんけん隊 ～月の砂漠で水さがし？３D動画でのぞいてみよう！～",
+   "areas": [
+    "W"
+   ],
+   "categories": [
+    "映像",
+    "お子様も楽しめる"
+   ],
+   "placeText": "W-4 宇宙ステーション運用棟 ２階 VR室",
+   "timeText": "10:00～15:30",
+   "summary": "月探査 LUPEX を 3D 立体映像で紹介。",
+   "participation": []
+  },
+  {
+   "no": "53",
+   "title": "HTV-X/JDOCXを知ろう！",
+   "areas": [
+    "W"
+   ],
+   "categories": [
+    "展示",
+    "映像",
+    "お子様も楽しめる"
+   ],
+   "placeText": "W-4 宇宙ステーション運用棟",
+   "timeText": "10:00～15:30",
+   "summary": "補給機 HTV-X と自動ドッキング実証 JDOCX の展示。",
+   "participation": []
+  },
+  {
+   "no": "54",
+   "title": "ゲーム「HTV-X GO！」",
+   "areas": [
+    "W"
+   ],
+   "categories": [
+    "体験",
+    "映像",
+    "お子様も楽しめる"
+   ],
+   "placeText": "W-4 宇宙ステーション運用棟",
+   "timeText": "10:00～15:30",
+   "summary": "HTV-X を ISS まで誘導する運用体験ゲーム。",
+   "participation": []
+  },
+  {
+   "no": "55",
+   "title": "未来を運ぶ名前を選ぼう！HTV-X愛称投票",
+   "areas": [
+    "W"
+   ],
+   "categories": [
+    "新イベント",
+    "展示",
+    "お子様も楽しめる"
+   ],
+   "placeText": "W-4 宇宙ステーション運用棟",
+   "timeText": "10:00～15:30",
+   "summary": "HTV-X の愛称を決める投票。",
+   "participation": []
+  },
+  {
+   "no": "56",
+   "title": "ワクワク☆宇宙探査の世界へGO！",
+   "areas": [
+    "W"
+   ],
+   "categories": [
+    "新イベント",
+    "展示",
+    "映像",
+    "お子様も楽しめる"
+   ],
+   "placeText": "W-4 宇宙ステーション運用棟 ３階 会議室",
+   "timeText": "10:00～15:30",
+   "summary": "国際宇宙探査センターの活動紹介。なぞ解きも。",
+   "participation": []
+  },
+  {
+   "no": "57",
+   "title": "【宇宙×なぞ解き】ISSから月を目指すワタシに贈る未来日記",
+   "areas": [
+    "W",
+    "C"
+   ],
+   "categories": [
+    "新イベント",
+    "展示",
+    "体験",
+    "お子様も楽しめる"
+   ],
+   "placeText": "C-5 宇宙飛行士養成棟\nW-2 宇宙ステーション運用棟／W-3 宇宙実験棟\nW-4宇宙ステーション試験棟",
+   "timeText": "10:00～15:30\n※最終回は14:50から実施予定",
+   "summary": "複数の建物を回るなぞ解きゲーム。用紙は C-1 総合開発推進棟前で配布（最終回は14:50から）。",
+   "participation": [],
+   "note": "C-1総合開発推進棟前で「なぞ説き用紙」を配布します。※荒天の場合はC-5 宇宙飛行士養成棟の入口"
+  }
+ ],
+ "sessions": [
+  {
+   "id": "01",
+   "event": "01",
+   "open": true,
+   "area": "E",
+   "start": "10:00",
+   "end": "15:30",
+   "visit": 20,
+   "hours": [
+    [
+     "10:00",
+     "12:00"
+    ],
+    [
+     "13:00",
+     "15:30"
+    ]
+   ]
+  },
+  {
+   "id": "02/1",
+   "event": "02",
+   "open": false,
+   "place": "SD",
+   "start": "10:05",
+   "end": "11:00",
+   "label": "①",
+   "needs": "apply"
+  },
+  {
+   "id": "02/2",
+   "event": "02",
+   "open": false,
+   "place": "SD",
+   "start": "11:05",
+   "end": "12:00",
+   "label": "②",
+   "needs": "apply"
+  },
+  {
+   "id": "02/3",
+   "event": "02",
+   "open": false,
+   "place": "SD",
+   "start": "13:05",
+   "end": "14:00",
+   "label": "③",
+   "needs": "apply"
+  },
+  {
+   "id": "03/1",
+   "event": "03",
+   "open": false,
+   "place": "E2K",
+   "start": "14:10",
+   "end": "15:30"
+  },
+  {
+   "id": "04/1",
+   "event": "04",
+   "open": false,
+   "place": "E2K",
+   "start": "10:15",
+   "end": "11:00",
+   "label": "①",
+   "needs": "first"
+  },
+  {
+   "id": "04/2",
+   "event": "04",
+   "open": false,
+   "place": "E2K",
+   "start": "12:45",
+   "end": "13:30",
+   "label": "②",
+   "needs": "ticket"
+  },
+  {
+   "id": "05",
+   "event": "05",
+   "open": true,
+   "area": "E",
+   "start": "10:00",
+   "end": "15:30",
+   "visit": 30,
+   "needs": "apply"
+  },
+  {
+   "id": "06/1",
+   "event": "06",
+   "open": false,
+   "place": "E2F",
+   "start": "11:00",
+   "end": "12:00",
+   "label": "①",
+   "needs": "apply"
+  },
+  {
+   "id": "06/2",
+   "event": "06",
+   "open": false,
+   "place": "E2F",
+   "start": "13:00",
+   "end": "14:00",
+   "label": "②",
+   "needs": "apply"
+  },
+  {
+   "id": "07/1",
+   "event": "07",
+   "open": false,
+   "place": "E2AV",
+   "start": "10:00",
+   "end": "10:15",
+   "label": "①",
+   "needs": "apply"
+  },
+  {
+   "id": "07/2",
+   "event": "07",
+   "open": false,
+   "place": "E2AV",
+   "start": "10:30",
+   "end": "10:45",
+   "label": "②",
+   "needs": "apply"
+  },
+  {
+   "id": "07/3",
+   "event": "07",
+   "open": false,
+   "place": "E2AV",
+   "start": "11:00",
+   "end": "11:15",
+   "label": "③",
+   "needs": "apply"
+  },
+  {
+   "id": "07/4",
+   "event": "07",
+   "open": false,
+   "place": "E2AV",
+   "start": "11:30",
+   "end": "11:45",
+   "label": "④",
+   "needs": "apply"
+  },
+  {
+   "id": "07/5",
+   "event": "07",
+   "open": false,
+   "place": "E2AV",
+   "start": "12:00",
+   "end": "12:15",
+   "label": "⑤",
+   "needs": "apply"
+  },
+  {
+   "id": "07/6",
+   "event": "07",
+   "open": false,
+   "place": "E2AV",
+   "start": "12:30",
+   "end": "12:45",
+   "label": "⑥",
+   "needs": "apply"
+  },
+  {
+   "id": "08/1",
+   "event": "08",
+   "open": false,
+   "place": "E2AV",
+   "start": "13:00",
+   "end": "13:20",
+   "label": "①",
+   "needs": "apply"
+  },
+  {
+   "id": "08/2",
+   "event": "08",
+   "open": false,
+   "place": "E2AV",
+   "start": "13:40",
+   "end": "14:00",
+   "label": "②",
+   "needs": "apply"
+  },
+  {
+   "id": "08/3",
+   "event": "08",
+   "open": false,
+   "place": "E2AV",
+   "start": "14:20",
+   "end": "14:40",
+   "label": "③",
+   "needs": "apply"
+  },
+  {
+   "id": "08/4",
+   "event": "08",
+   "open": false,
+   "place": "E2AV",
+   "start": "15:00",
+   "end": "15:20",
+   "label": "④",
+   "needs": "apply"
+  },
+  {
+   "id": "09",
+   "event": "09",
+   "open": true,
+   "area": "E",
+   "start": "10:00",
+   "end": "15:30",
+   "visit": 10
+  },
+  {
+   "id": "10",
+   "event": "10",
+   "open": true,
+   "area": "E",
+   "start": "10:00",
+   "end": "15:30",
+   "visit": 15
+  },
+  {
+   "id": "11",
+   "event": "11",
+   "open": true,
+   "area": "E",
+   "start": "10:00",
+   "end": "15:30",
+   "visit": 10
+  },
+  {
+   "id": "12",
+   "event": "12",
+   "open": true,
+   "area": "S",
+   "start": "10:15",
+   "end": "14:30",
+   "visit": 30
+  },
+  {
+   "id": "13",
+   "event": "13",
+   "open": true,
+   "area": "S",
+   "start": "10:00",
+   "end": "15:30",
+   "visit": 30,
+   "sub": "展示"
+  },
+  {
+   "id": "13/1",
+   "event": "13",
+   "open": false,
+   "place": "S3",
+   "start": "11:00",
+   "end": "11:30",
+   "label": "①",
+   "sub": "講演"
+  },
+  {
+   "id": "13/2",
+   "event": "13",
+   "open": false,
+   "place": "S3",
+   "start": "12:00",
+   "end": "12:30",
+   "label": "②",
+   "sub": "講演"
+  },
+  {
+   "id": "13/3",
+   "event": "13",
+   "open": false,
+   "place": "S3",
+   "start": "13:45",
+   "end": "14:15",
+   "label": "③",
+   "sub": "講演"
+  },
+  {
+   "id": "13/4",
+   "event": "13",
+   "open": false,
+   "place": "S3",
+   "start": "14:45",
+   "end": "15:15",
+   "label": "④",
+   "sub": "講演"
+  },
+  {
+   "id": "14/1",
+   "event": "14",
+   "open": false,
+   "place": "S4",
+   "start": "10:15",
+   "end": "11:15",
+   "label": "①",
+   "needs": "apply"
+  },
+  {
+   "id": "14/2",
+   "event": "14",
+   "open": false,
+   "place": "S4",
+   "start": "11:15",
+   "end": "12:15",
+   "label": "②",
+   "needs": "apply"
+  },
+  {
+   "id": "14/3",
+   "event": "14",
+   "open": false,
+   "place": "S4",
+   "start": "13:15",
+   "end": "14:15",
+   "label": "③",
+   "needs": "apply"
+  },
+  {
+   "id": "14/4",
+   "event": "14",
+   "open": false,
+   "place": "S4",
+   "start": "14:15",
+   "end": "15:15",
+   "label": "④",
+   "needs": "apply"
+  },
+  {
+   "id": "15",
+   "event": "15",
+   "open": true,
+   "area": "S",
+   "start": "10:00",
+   "end": "15:30",
+   "visit": 30
+  },
+  {
+   "id": "16",
+   "event": "16",
+   "open": true,
+   "area": "S",
+   "start": "10:00",
+   "end": "15:00",
+   "visit": 30
+  },
+  {
+   "id": "17",
+   "event": "17",
+   "open": true,
+   "area": "S",
+   "start": "10:15",
+   "end": "14:45",
+   "visit": 30
+  },
+  {
+   "id": "18",
+   "event": "18",
+   "open": true,
+   "area": "S",
+   "start": "10:15",
+   "end": "15:15",
+   "visit": 30
+  },
+  {
+   "id": "19/1",
+   "event": "19",
+   "open": false,
+   "place": "S10",
+   "start": "10:15",
+   "end": "11:15",
+   "label": "①",
+   "needs": "apply"
+  },
+  {
+   "id": "19/2",
+   "event": "19",
+   "open": false,
+   "place": "S10",
+   "start": "11:30",
+   "end": "12:30",
+   "label": "②",
+   "needs": "apply"
+  },
+  {
+   "id": "19/3",
+   "event": "19",
+   "open": false,
+   "place": "S10",
+   "start": "12:45",
+   "end": "13:45",
+   "label": "③",
+   "needs": "apply"
+  },
+  {
+   "id": "19/4",
+   "event": "19",
+   "open": false,
+   "place": "S10",
+   "start": "14:00",
+   "end": "15:00",
+   "label": "④",
+   "needs": "apply"
+  },
+  {
+   "id": "20",
+   "event": "20",
+   "open": true,
+   "area": "C",
+   "start": "10:00",
+   "end": "15:30",
+   "visit": 20,
+   "hours": [
+    [
+     "10:00",
+     "12:00"
+    ],
+    [
+     "13:30",
+     "15:30"
+    ]
+   ]
+  },
+  {
+   "id": "21",
+   "event": "21",
+   "open": true,
+   "area": "C",
+   "start": "10:00",
+   "end": "15:30",
+   "visit": 10
+  },
+  {
+   "id": "22",
+   "event": "22",
+   "open": true,
+   "area": "C",
+   "start": "10:00",
+   "end": "15:30",
+   "visit": 10
+  },
+  {
+   "id": "23",
+   "event": "23",
+   "open": true,
+   "area": "C",
+   "start": "10:00",
+   "end": "15:30",
+   "visit": 60,
+   "needs": "apply"
+  },
+  {
+   "id": "24",
+   "event": "24",
+   "open": true,
+   "area": "C",
+   "start": "10:00",
+   "end": "15:30",
+   "visit": 30
+  },
+  {
+   "id": "25",
+   "event": "25",
+   "open": true,
+   "area": "C",
+   "start": "10:00",
+   "end": "15:30",
+   "visit": 30
+  },
+  {
+   "id": "26",
+   "event": "26",
+   "open": true,
+   "area": "C",
+   "start": "10:00",
+   "end": "15:30",
+   "visit": 30
+  },
+  {
+   "id": "27",
+   "event": "27",
+   "open": true,
+   "area": "C",
+   "start": "10:00",
+   "end": "15:30",
+   "visit": 30
+  },
+  {
+   "id": "28",
+   "event": "28",
+   "open": true,
+   "area": "C",
+   "start": "10:00",
+   "end": "15:30",
+   "visit": 30
+  },
+  {
+   "id": "29",
+   "event": "29",
+   "open": true,
+   "area": "C",
+   "start": "10:00",
+   "end": "15:30",
+   "visit": 30
+  },
+  {
+   "id": "30",
+   "event": "30",
+   "open": true,
+   "area": "C",
+   "start": "10:00",
+   "end": "15:30",
+   "visit": 30
+  },
+  {
+   "id": "31",
+   "event": "31",
+   "open": true,
+   "area": "C",
+   "start": "10:00",
+   "end": "15:30",
+   "visit": 10
+  },
+  {
+   "id": "32/1",
+   "event": "32",
+   "open": false,
+   "place": "C1S",
+   "start": "10:15",
+   "end": "11:15",
+   "label": "①",
+   "needs": "apply"
+  },
+  {
+   "id": "32/2",
+   "event": "32",
+   "open": false,
+   "place": "C1S",
+   "start": "11:15",
+   "end": "12:15",
+   "label": "②",
+   "needs": "apply"
+  },
+  {
+   "id": "32/3",
+   "event": "32",
+   "open": false,
+   "place": "C1S",
+   "start": "12:15",
+   "end": "13:15",
+   "label": "③",
+   "needs": "apply"
+  },
+  {
+   "id": "32/4",
+   "event": "32",
+   "open": false,
+   "place": "C1S",
+   "start": "13:15",
+   "end": "14:15",
+   "label": "④",
+   "needs": "apply"
+  },
+  {
+   "id": "32/5",
+   "event": "32",
+   "open": false,
+   "place": "C1S",
+   "start": "14:15",
+   "end": "15:15",
+   "label": "⑤",
+   "needs": "apply"
+  },
+  {
+   "id": "33",
+   "event": "33",
+   "open": true,
+   "area": "C",
+   "start": "10:00",
+   "end": "15:30",
+   "visit": 30,
+   "hours": [
+    [
+     "10:00",
+     "12:00"
+    ],
+    [
+     "13:00",
+     "15:30"
+    ]
+   ]
+  },
+  {
+   "id": "34/1",
+   "event": "34",
+   "open": false,
+   "place": "C1S2",
+   "start": "10:15",
+   "end": "10:55",
+   "label": "①",
+   "endEstimated": true,
+   "needs": "ticket"
+  },
+  {
+   "id": "34/2",
+   "event": "34",
+   "open": false,
+   "place": "C1S2",
+   "start": "11:00",
+   "end": "11:40",
+   "label": "②",
+   "endEstimated": true,
+   "needs": "ticket"
+  },
+  {
+   "id": "34/3",
+   "event": "34",
+   "open": false,
+   "place": "C1S2",
+   "start": "11:45",
+   "end": "12:25",
+   "label": "③",
+   "endEstimated": true,
+   "needs": "ticket"
+  },
+  {
+   "id": "34/4",
+   "event": "34",
+   "open": false,
+   "place": "C1S2",
+   "start": "13:15",
+   "end": "13:55",
+   "label": "④",
+   "endEstimated": true,
+   "needs": "ticket"
+  },
+  {
+   "id": "34/5",
+   "event": "34",
+   "open": false,
+   "place": "C1S2",
+   "start": "14:00",
+   "end": "14:40",
+   "label": "⑤",
+   "endEstimated": true,
+   "needs": "ticket"
+  },
+  {
+   "id": "34/6",
+   "event": "34",
+   "open": false,
+   "place": "C1S2",
+   "start": "14:45",
+   "end": "15:25",
+   "label": "⑥",
+   "endEstimated": true,
+   "needs": "ticket"
+  },
+  {
+   "id": "35",
+   "event": "35",
+   "open": true,
+   "area": "C",
+   "start": "10:00",
+   "end": "15:30",
+   "visit": 30
+  },
+  {
+   "id": "36",
+   "event": "36",
+   "open": true,
+   "area": "C",
+   "start": "10:00",
+   "end": "15:30",
+   "visit": 30
+  },
+  {
+   "id": "37",
+   "event": "37",
+   "open": true,
+   "area": "C",
+   "start": "10:00",
+   "end": "15:30",
+   "visit": 30
+  },
+  {
+   "id": "38",
+   "event": "38",
+   "open": true,
+   "area": "C",
+   "start": "10:00",
+   "end": "15:30",
+   "visit": 30
+  },
+  {
+   "id": "39",
+   "event": "39",
+   "open": true,
+   "area": "C",
+   "start": "10:00",
+   "end": "15:30",
+   "visit": 30
+  },
+  {
+   "id": "40",
+   "event": "40",
+   "open": true,
+   "area": "C",
+   "start": "10:00",
+   "end": "15:30",
+   "visit": 30,
+   "sub": "顕微鏡体験"
+  },
+  {
+   "id": "40/1",
+   "event": "40",
+   "open": false,
+   "place": "C1MB",
+   "start": "10:30",
+   "end": "11:00",
+   "label": "①",
+   "sub": "髪の毛観察",
+   "needs": "ticket"
+  },
+  {
+   "id": "40/2",
+   "event": "40",
+   "open": false,
+   "place": "C1MB",
+   "start": "11:30",
+   "end": "12:00",
+   "label": "②",
+   "sub": "髪の毛観察",
+   "needs": "ticket"
+  },
+  {
+   "id": "40/3",
+   "event": "40",
+   "open": false,
+   "place": "C1MB",
+   "start": "12:30",
+   "end": "13:00",
+   "label": "③",
+   "sub": "髪の毛観察",
+   "needs": "ticket"
+  },
+  {
+   "id": "40/4",
+   "event": "40",
+   "open": false,
+   "place": "C1MB",
+   "start": "13:30",
+   "end": "14:00",
+   "label": "④",
+   "sub": "髪の毛観察",
+   "needs": "ticket"
+  },
+  {
+   "id": "40/5",
+   "event": "40",
+   "open": false,
+   "place": "C1MB",
+   "start": "14:30",
+   "end": "15:00",
+   "label": "⑤",
+   "sub": "髪の毛観察",
+   "needs": "ticket"
+  },
+  {
+   "id": "41",
+   "event": "41",
+   "open": true,
+   "area": "C",
+   "start": "10:00",
+   "end": "15:30",
+   "visit": 30
+  },
+  {
+   "id": "42",
+   "event": "42",
+   "open": true,
+   "area": "C",
+   "start": "10:00",
+   "end": "15:30",
+   "visit": 30
+  },
+  {
+   "id": "43",
+   "event": "43",
+   "open": true,
+   "area": "C",
+   "start": "10:00",
+   "end": "15:30",
+   "visit": 30
+  },
+  {
+   "id": "44",
+   "event": "44",
+   "open": true,
+   "area": "C",
+   "start": "10:00",
+   "end": "15:30",
+   "visit": 30
+  },
+  {
+   "id": "45",
+   "event": "45",
+   "open": true,
+   "area": "C",
+   "start": "10:00",
+   "end": "15:30",
+   "visit": 30,
+   "sub": "ミッション\"つなぐ\"（入退場自由）"
+  },
+  {
+   "id": "45/L1",
+   "event": "45",
+   "open": false,
+   "place": "C5",
+   "start": "11:00",
+   "end": "11:30",
+   "label": "①",
+   "sub": "ラウンジ\"つなぐ\"",
+   "needs": "apply"
+  },
+  {
+   "id": "45/L2",
+   "event": "45",
+   "open": false,
+   "place": "C5",
+   "start": "11:40",
+   "end": "12:10",
+   "label": "②",
+   "sub": "ラウンジ\"つなぐ\"",
+   "needs": "apply"
+  },
+  {
+   "id": "45/L3",
+   "event": "45",
+   "open": false,
+   "place": "C5",
+   "start": "13:00",
+   "end": "13:30",
+   "label": "③",
+   "sub": "ラウンジ\"つなぐ\"",
+   "needs": "apply"
+  },
+  {
+   "id": "45/L4",
+   "event": "45",
+   "open": false,
+   "place": "C5",
+   "start": "13:40",
+   "end": "14:10",
+   "label": "④",
+   "sub": "ラウンジ\"つなぐ\"",
+   "needs": "apply"
+  },
+  {
+   "id": "45/M",
+   "event": "45",
+   "open": false,
+   "place": "C5",
+   "start": "14:30",
+   "end": "15:00",
+   "sub": "ミーティング\"つなぐ\"",
+   "needs": "ticket"
+  },
+  {
+   "id": "46/1",
+   "event": "46",
+   "open": false,
+   "place": "W1",
+   "start": "10:15",
+   "end": "11:15",
+   "label": "①",
+   "needs": "apply"
+  },
+  {
+   "id": "46/2",
+   "event": "46",
+   "open": false,
+   "place": "W1",
+   "start": "11:15",
+   "end": "12:15",
+   "label": "②",
+   "needs": "apply"
+  },
+  {
+   "id": "46/3",
+   "event": "46",
+   "open": false,
+   "place": "W1",
+   "start": "13:15",
+   "end": "14:15",
+   "label": "③",
+   "needs": "apply"
+  },
+  {
+   "id": "46/4",
+   "event": "46",
+   "open": false,
+   "place": "W1",
+   "start": "14:15",
+   "end": "15:15",
+   "label": "④",
+   "needs": "apply"
+  },
+  {
+   "id": "47",
+   "event": "47",
+   "open": true,
+   "area": "W",
+   "start": "10:00",
+   "end": "15:30",
+   "visit": 30
+  },
+  {
+   "id": "48/1",
+   "event": "48",
+   "open": false,
+   "place": "W3",
+   "start": "10:30",
+   "end": "11:15",
+   "label": "①",
+   "needs": "apply"
+  },
+  {
+   "id": "48/2",
+   "event": "48",
+   "open": false,
+   "place": "W3",
+   "start": "13:15",
+   "end": "14:00",
+   "label": "②",
+   "needs": "apply"
+  },
+  {
+   "id": "48/3",
+   "event": "48",
+   "open": false,
+   "place": "W3",
+   "start": "14:30",
+   "end": "15:15",
+   "label": "③",
+   "needs": "apply"
+  },
+  {
+   "id": "49",
+   "event": "49",
+   "open": true,
+   "area": "W",
+   "start": "10:00",
+   "end": "15:30",
+   "visit": 30
+  },
+  {
+   "id": "50/1",
+   "event": "50",
+   "open": false,
+   "place": "W3",
+   "start": "11:45",
+   "end": "12:30",
+   "needs": "apply"
+  },
+  {
+   "id": "51",
+   "event": "51",
+   "open": true,
+   "area": "W",
+   "start": "10:00",
+   "end": "15:30",
+   "visit": 30
+  },
+  {
+   "id": "52",
+   "event": "52",
+   "open": true,
+   "area": "W",
+   "start": "10:00",
+   "end": "15:30",
+   "visit": 30
+  },
+  {
+   "id": "53",
+   "event": "53",
+   "open": true,
+   "area": "W",
+   "start": "10:00",
+   "end": "15:30",
+   "visit": 30
+  },
+  {
+   "id": "54",
+   "event": "54",
+   "open": true,
+   "area": "W",
+   "start": "10:00",
+   "end": "15:30",
+   "visit": 30
+  },
+  {
+   "id": "55",
+   "event": "55",
+   "open": true,
+   "area": "W",
+   "start": "10:00",
+   "end": "15:30",
+   "visit": 10
+  },
+  {
+   "id": "56",
+   "event": "56",
+   "open": true,
+   "area": "W",
+   "start": "10:00",
+   "end": "15:30",
+   "visit": 30
+  },
+  {
+   "id": "57",
+   "event": "57",
+   "open": true,
+   "area": "W",
+   "start": "10:00",
+   "end": "15:30",
+   "visit": 60
+  }
+ ]
+}
