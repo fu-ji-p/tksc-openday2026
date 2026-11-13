@@ -160,6 +160,10 @@ export function SettingsMenu({ state, visibleCount, onReplace, onClear, onClose 
               をご確認ください。
             </p>
             <p className="hint">「終了は目安」と表示される時刻は、公式に終了時刻の記載がないため仮に置いたものです。</p>
+            <p className="hint">
+              利用状況の把握のため、訪問数を GoatCounter で匿名計測しています（Cookie や個人を特定する情報は使いません）。
+              マイスケジュールや申込状況のメモの内容は送信されません。
+            </p>
           </section>
         </div>
       </aside>
