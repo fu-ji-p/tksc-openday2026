@@ -3,6 +3,7 @@ import { eventByNo } from '../data';
 import { cardRect } from '../lib/layout';
 
 /** short labels: cards can be as narrow as 96px */
+const MINE_SHORT = { applied: '申込済', won: '当選', lost: '落選' } as const;
 const NEED_SHORT = { apply: '申込', ticket: '整理', first: '先着' } as const;
 
 interface Props {
@@ -35,17 +36,19 @@ export function SessionCard({ session, column, selected, mine, dimmed, matched, 
       style={{ gridRow: 2, gridColumn: column, top: rect.top, height: rect.height }}
       onClick={() => onOpen(session.event)}
       aria-pressed={selected}
-      title={`${session.start}-${session.end} ${title}`}
+      title={`${session.event} ${session.start}-${session.end} ${title}`}
     >
       <span className="card-time">
+        <span className="card-no">{session.event}</span>
         {session.start}–{session.end}
-        {session.needs && <span className="card-need">{mine === 'won' ? '当選' : mine === 'applied' ? '済' : NEED_SHORT[session.needs]}</span>}
+        {session.needs && <span className="card-need">{NEED_SHORT[session.needs]}</span>}
       </span>
       <span className="card-title">
         {session.label}
         {session.sub ? `${session.sub}｜` : ''}
         {title}
       </span>
+      {mine && <span className={'card-mine mine-' + mine}>{MINE_SHORT[mine]}</span>}
       {selected && (
         <span className="card-check" aria-hidden="true">
           ✓
