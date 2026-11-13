@@ -15,6 +15,8 @@ export interface PlanItem {
   timed: boolean;
   /** the time was chosen by the visitor (drop-in session) */
   custom: boolean;
+  /** the chosen time falls outside the opening hours (e.g. in the lunch break) */
+  offHours: boolean;
 }
 
 export interface Lookup {
@@ -25,19 +27,37 @@ export interface Lookup {
 
 const HHMM = /^\d{2}:\d{2}$/;
 
+/** Opening hours of a drop-in session: one range, or several when there is a break. */
+export function openingHours(s: Session): [string, string][] {
+  return s.hours ?? [[s.start, s.end]];
+}
+
+/** "10:00–12:00 ／ 13:00–15:30" */
+export function hoursText(s: Session): string {
+  return openingHours(s)
+    .map(([a, b]) => `${a}–${b}`)
+    .join(' ／ ');
+}
+
+/** Is the session running at this time? The closing minute itself counts as closed. */
+export function isOpenAt(s: Session, time: string): boolean {
+  const t = toMinutes(time);
+  return openingHours(s).some(([a, b]) => toMinutes(a) <= t && t < toMinutes(b));
+}
+
 /** Resolve a selection entry against the program; null when the session no longer exists. */
 export function resolveItem(id: string, times: Record<string, string>, db: Lookup): PlanItem | null {
   const session = db.sessionById.get(id);
   const event = session && db.eventByNo.get(session.event);
   if (!session || !event) return null;
   const base = { id, session, event, area: db.areaOf(session) };
-  if (!session.open) return { ...base, start: session.start, end: session.end, timed: true, custom: false };
+  if (!session.open) return { ...base, start: session.start, end: session.end, timed: true, custom: false, offHours: false };
   const t = times[id];
   if (t && HHMM.test(t)) {
     const end = Math.min(toMinutes(t) + (session.visit ?? 30), 24 * 60 - 1);
-    return { ...base, start: t, end: fromMinutes(end, true), timed: true, custom: true };
+    return { ...base, start: t, end: fromMinutes(end, true), timed: true, custom: true, offHours: !isOpenAt(session, t) };
   }
-  return { ...base, start: session.start, end: session.end, timed: false, custom: false };
+  return { ...base, start: session.start, end: session.end, timed: false, custom: false, offHours: false };
 }
 
 export interface Plan {

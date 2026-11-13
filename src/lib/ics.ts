@@ -104,6 +104,7 @@ export function buildScheduleIcs(input: ScheduleIcsInput, opts: IcsOptions): str
     }
     if (it.session.needs === 'ticket' && it.event.ticket) desc.push(`整理券: ${it.event.ticket.time} ／ ${it.event.ticket.place}`);
     if (it.custom) desc.push('※ 自分で決めた時刻です（出入り自由のイベント）');
+    if (it.offHours) desc.push('⚠ この時刻は実施していない時間です。開催時間を確認してください');
     if (it.session.endEstimated) desc.push('※ 終了時刻は目安です');
     if (it.event.summary) desc.push('', it.event.summary);
     if (opts.appUrl) desc.push('', `特別公開2026 マイスケジュール: ${opts.appUrl}`);

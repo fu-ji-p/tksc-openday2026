@@ -13,7 +13,7 @@ import {
   LANE_COL_PX,
   SUB_PX,
 } from '../src/lib/layout';
-import { buildPlan, resolveItem, selectedEvents, type Lookup } from '../src/lib/plan';
+import { buildPlan, hoursText, isOpenAt, resolveItem, selectedEvents, type Lookup } from '../src/lib/plan';
 import { matchEvents } from '../src/lib/search';
 import { program } from '../src/data';
 
@@ -63,6 +63,23 @@ describe('plan', () => {
     expect(resolveItem('12', {}, db)).toMatchObject({ timed: false, area: 'S' });
     expect(resolveItem('01', { '01': '11:00' }, db)).toMatchObject({ start: '11:00', end: '11:20', timed: true, custom: true });
     expect(resolveItem('99/1', {}, db)).toBeNull();
+  });
+
+  it('knows the lunch breaks of 01, 20 and 33 and the shorter hours of 12', () => {
+    const s = (id: string) => sessionById.get(id)!;
+    expect(hoursText(s('01'))).toBe('10:00–12:00 ／ 13:00–15:30');
+    expect(hoursText(s('20'))).toBe('10:00–12:00 ／ 13:30–15:30');
+    expect(hoursText(s('33'))).toBe('10:00–12:00 ／ 13:00–15:30');
+    expect([isOpenAt(s('01'), '11:55'), isOpenAt(s('01'), '12:00'), isOpenAt(s('01'), '12:30'), isOpenAt(s('01'), '13:00')]).toEqual([true, false, false, true]);
+    expect([isOpenAt(s('20'), '13:00'), isOpenAt(s('20'), '13:30'), isOpenAt(s('33'), '12:59')]).toEqual([false, true, false]);
+    expect([isOpenAt(s('12'), '10:00'), isOpenAt(s('12'), '10:15'), isOpenAt(s('12'), '14:30')]).toEqual([false, true, false]);
+  });
+
+  it('flags a visit time chosen outside the opening hours', () => {
+    expect(resolveItem('01', { '01': '12:20' }, db)).toMatchObject({ timed: true, custom: true, offHours: true });
+    expect(resolveItem('01', { '01': '11:00' }, db)).toMatchObject({ offHours: false });
+    expect(resolveItem('01', {}, db)).toMatchObject({ timed: false, offHours: false });
+    expect(resolveItem('14/2', {}, db)).toMatchObject({ offHours: false });
   });
 
   it('sorts timed items, separates free ones, and reports conflicts and area moves', () => {

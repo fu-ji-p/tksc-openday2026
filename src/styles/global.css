@@ -2178,3 +2178,26 @@ a.btn-primary {
 .tt-scroll[hidden] {
   display: none;
 }
+
+/* a chosen visit time that falls outside the opening hours (e.g. the lunch break) */
+.time-alert {
+  display: block;
+  margin-top: 4px;
+  padding: 5px 8px;
+  border: 1px solid var(--danger);
+  border-radius: 6px;
+  background: #fff1f0;
+  color: #a02a1e;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.badge-alert {
+  background: var(--danger);
+  color: #fff;
+}
+.sched-item.is-offhours {
+  border-color: var(--danger);
+  border-left-color: var(--danger);
+  background: #fff7f6;
+}

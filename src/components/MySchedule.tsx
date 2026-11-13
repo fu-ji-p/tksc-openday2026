@@ -2,7 +2,7 @@ import type { EventInfo, MyApply } from '../types';
 import { DATE, NEEDS_LABEL, program, sessionPlace, sessionTitle } from '../data';
 import { MY_APPLY_LABEL, applyPhase, deadlineText } from '../lib/apply';
 import { buildScheduleIcs, downloadText } from '../lib/ics';
-import type { Plan, PlanItem } from '../lib/plan';
+import { hoursText, type Plan, type PlanItem } from '../lib/plan';
 import { formatDateJa } from '../lib/time';
 
 export const ICS_FILENAME = 'tksc-openday2026-myschedule.ics';
@@ -95,7 +95,7 @@ export function MySchedule({ plan, apply, nowMs, print = false, onOpen, onRemove
           </div>
         )}
         <article
-          className={'sched-item need-' + (s.needs ?? 'free') + (conflict ? ' is-conflict' : '') + (mine === 'lost' ? ' is-lost' : '')}
+          className={'sched-item need-' + (s.needs ?? 'free') + (conflict ? ' is-conflict' : '') + (it.offHours ? ' is-offhours' : '') + (mine === 'lost' ? ' is-lost' : '')}
           onClick={onOpen ? () => onOpen(e.no) : undefined}
           role={onOpen ? 'button' : undefined}
           tabIndex={onOpen ? 0 : undefined}
@@ -118,14 +118,20 @@ export function MySchedule({ plan, apply, nowMs, print = false, onOpen, onRemove
               {s.needs && <span className={'tag need-' + s.needs}>{NEEDS_LABEL[s.needs]}</span>}
               {s.needs === 'apply' && <span className={'tag mine-' + (mine ?? 'none')}>{mine ? MY_APPLY_LABEL[mine] : '未申込'}</span>}
               {conflict && <span className="badge badge-warn">重複</span>}
+              {it.offHours && <span className="badge badge-alert">時間外</span>}
             </div>
             <h3 className="sched-title">{sessionTitle(s)}</h3>
             <div className="sched-venue">
               <span className={'bld-tag area-' + it.area}>{it.area}エリア</span> {sessionPlace(s)}
             </div>
+            {it.offHours && (
+              <div className="time-alert" role="alert">
+                ⚠ {it.start} は実施していない時間です。開催は {hoursText(s)}。{!print && 'タップして行く時刻を変えてください。'}
+              </div>
+            )}
             {!it.timed && (
               <div className="sched-chair">
-                開催 {(s.hours ?? [[s.start, s.end]]).map(([a, b]) => `${a}–${b}`).join(' ／ ')}
+                開催 {hoursText(s)}
                 {!print && ' ・ タップして行く時刻を決められます'}
               </div>
             )}
@@ -216,6 +222,7 @@ export function MySchedule({ plan, apply, nowMs, print = false, onOpen, onRemove
           <h2 className="sched-date">
             時刻の決まった予定
             {plan.conflicts.size > 0 && <span className="badge badge-warn">重複あり</span>}
+            {plan.timed.some((x) => x.offHours) && <span className="badge badge-alert">時間外あり</span>}
           </h2>
           {plan.timed.length === 0 ? <p className="sched-none">選択なし</p> : <ol className="sched-list">{plan.timed.map(renderItem)}</ol>}
         </section>

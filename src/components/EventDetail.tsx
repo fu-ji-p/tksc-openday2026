@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
-import type { EventInfo, MyApply, Session } from '../types';
+import type { EventInfo, MyApply } from '../types';
 import { NEEDS_LABEL, program, sessionPlace, sessionsByEvent } from '../data';
 import { METHOD_LABEL, applyPhase, deadlineText } from '../lib/apply';
+import { hoursText, isOpenAt } from '../lib/plan';
 import { EventNo, MyApplyPicker, PhasePill } from './Badges';
 
 interface Props {
@@ -14,10 +15,6 @@ interface Props {
   onSetTime: (sessionId: string, time: string | null) => void;
   onSetApply: (no: string, status: MyApply | null) => void;
   onClose: () => void;
-}
-
-function hoursText(s: Session): string {
-  return (s.hours ?? [[s.start, s.end]]).map(([a, b]) => `${a}–${b}`).join(' ／ ');
 }
 
 export function EventDetail({ event, selected, times, mine, nowMs, onToggle, onSetTime, onSetApply, onClose }: Props) {
@@ -192,6 +189,11 @@ export function EventDetail({ event, selected, times, mine, nowMs, onToggle, onS
                           </button>
                         )}
                       </label>
+                    )}
+                    {s.open && on && times[s.id] && !isOpenAt(s, times[s.id]) && (
+                      <span className="time-alert" role="alert">
+                        ⚠ {times[s.id]} は実施していない時間です。開催は {hoursText(s)}。行く時刻を変えてください。
+                      </span>
                     )}
                   </span>
                   {s.needs && <span className={'tag need-' + s.needs}>{NEEDS_LABEL[s.needs]}</span>}
