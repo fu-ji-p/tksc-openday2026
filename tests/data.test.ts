@@ -36,6 +36,23 @@ describe('program.json', () => {
     }
   });
 
+  it('gives every ticketed event hand-out times that sit in a grid column before the sessions they are for', () => {
+    for (const e of program.events) {
+      if (!e.ticket) continue;
+      expect(e.ticket.slots?.length, e.no).toBeGreaterThan(0);
+      const ticketed = fixedSessions.filter((s) => s.event === e.no && s.needs === 'ticket');
+      for (const t of e.ticket.slots!) {
+        expect(placeById.has(t.place), e.no).toBe(true);
+        expect(toMinutes(t.time) >= GRID_START && toMinutes(t.time) % 5 === 0, e.no).toBe(true);
+        expect(e.ticket.time, e.no).toContain(t.time);
+        // the marker (15 minutes tall) must not sit on top of a session card in that column
+        const mark = { start: t.time, end: `${t.time.slice(0, 3)}${String(Number(t.time.slice(3)) + 15).padStart(2, '0')}` };
+        for (const s of fixedSessions) if (s.place === t.place) expect(overlaps(mark, s), `${e.no} ${t.time} ${s.id}`).toBe(false);
+      }
+      expect(ticketed.some((s) => toMinutes(s.start) > toMinutes(e.ticket!.slots![0].time)), e.no).toBe(true);
+    }
+  });
+
   it('marks who needs what on sessions of partially restricted events', () => {
     const needs = (id: string) => program.sessions.find((s) => s.id === id)?.needs;
     expect([needs('04/1'), needs('04/2')]).toEqual(['first', 'ticket']);

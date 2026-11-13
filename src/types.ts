@@ -35,9 +35,18 @@ export interface ApplyInfo {
   resultBy?: string; // ISO 8601
 }
 
+/** When numbered tickets start being handed out (a marker on the timetable). */
+export interface TicketSlot {
+  time: string; // HH:MM
+  note: string;
+  /** Place.id of the grid column the marker is drawn in */
+  place: string;
+}
+
 export interface TicketInfo {
   time: string;
   place: string;
+  slots?: TicketSlot[];
   target?: string;
   count?: string;
 }

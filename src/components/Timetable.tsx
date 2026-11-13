@@ -6,6 +6,7 @@ import {
   GRID_END,
   GRID_START,
   HEADER_PX,
+  SLOT_PX,
   SUB_COUNT,
   SUB_PX,
   TIME_COL_PX,
@@ -15,7 +16,7 @@ import {
   minutesToOffset,
   timeSlots,
 } from '../lib/layout';
-import { fromMinutes } from '../lib/time';
+import { fromMinutes, toMinutes } from '../lib/time';
 import { SessionCard } from './SessionCard';
 
 interface Props {
@@ -72,6 +73,7 @@ export function Timetable({ columns, sessions, selected, apply, matchSet, nowMin
         <span className="legend-item need-ticket">整理券</span>
         <span className="legend-item need-first">先着順</span>
         <span className="legend-item need-free">申込不要</span>
+        <span className="legend-item legend-ticket">🎫 整理券の配布開始</span>
         <span className="legend-note">細い列は終日（出入り自由）のイベント。色の帯が開催時間です</span>
       </div>
       <div className="tt-scroll" ref={scrollRef}>
@@ -148,6 +150,28 @@ export function Timetable({ columns, sessions, selected, apply, matchSet, nowMin
                     onOpen={onOpen}
                   />
                 )),
+          )}
+          {/* when numbered tickets start being handed out, in the column of the sessions they are for */}
+          {program.events.flatMap((e) =>
+            (e.ticket?.slots ?? []).map((t) => {
+              const col = colIndex.get(t.place);
+              if (!col) return null;
+              return (
+                <button
+                  key={e.no + t.time}
+                  type="button"
+                  className={'ticket-mark' + (matchSet !== null && !matchSet.has(e.no) ? ' is-dimmed' : '')}
+                  style={{ gridRow: 2, gridColumn: col, top: minutesToOffset(toMinutes(t.time)), height: SLOT_PX }}
+                  onClick={() => onOpen(e.no)}
+                  title={`整理券配布 ${t.time}〜（${t.note}） ${e.ticket!.place} ／ ${e.no} ${e.title}`}
+                >
+                  <span className="ticket-mark-head">
+                    <span className="card-no">{e.no}</span>🎫 {fromMinutes(toMinutes(t.time))}〜
+                  </span>
+                  <span className="ticket-mark-note">{t.note}の整理券</span>
+                </button>
+              );
+            }),
           )}
           {showNow && nowMinutes !== null && (
             <div
