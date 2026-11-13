@@ -2022,3 +2022,88 @@ a.btn-primary {
 .card-mine.mine-lost {
   background: #8a94a3;
 }
+
+/* all-day (drop-in) events: one narrow lane each, title written vertically */
+.tt-venue.is-lane {
+  padding: 0 1px;
+  align-items: center;
+  border-right-style: dotted;
+}
+.tt-venue.is-lane .tt-venue-name {
+  font-size: 11px;
+}
+.tt-venue.is-lane .tt-venue-room {
+  font-size: 8px;
+  letter-spacing: -0.03em;
+  max-width: 100%;
+  text-overflow: clip;
+}
+.tt-col.is-lane {
+  border-right-style: dotted;
+}
+.card.card-lane {
+  align-items: center;
+  gap: 3px;
+  margin: 1px;
+  padding: 3px 0;
+  border-left-width: 3px;
+}
+.card-lane .card-no {
+  flex: none;
+  margin: 0;
+  padding: 0 3px;
+}
+.card-lane .card-title {
+  display: block;
+  flex: 1;
+  min-height: 0;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 11px;
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+}
+.card-lane .card-check {
+  top: auto;
+  right: auto;
+  bottom: 3px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.card-lane.is-selected .card-title {
+  margin-bottom: 20px;
+}
+.card-lane .card-mine {
+  right: 1px;
+  bottom: 22px;
+  padding: 0 2px;
+  font-size: 8px;
+}
+
+/* keep the area name in view while its (now wide) group scrolls horizontally */
+.tt-building {
+  justify-content: flex-start;
+  overflow: clip; /* "hidden" would make this box the sticky container and pin nothing */
+}
+.tt-building span {
+  position: sticky;
+  left: calc(var(--time-col) + 8px);
+}
+
+/* all-day lanes: keep the number and title in view while scrolling down the day */
+.card.card-lane {
+  overflow: clip;
+}
+.card-lane .card-no {
+  position: sticky;
+  top: calc(var(--header-h) + 8px);
+}
+.card-lane .card-title {
+  flex: none;
+  max-height: calc(100% - 22px);
+  position: sticky;
+  top: calc(var(--header-h) + 26px);
+}

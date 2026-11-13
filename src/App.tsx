@@ -10,6 +10,7 @@ import { Timetable } from './components/Timetable';
 import { useNow } from './hooks/useNow';
 import { useSchedule } from './hooks/useSchedule';
 import { applyPhase, isUrgent } from './lib/apply';
+import { buildColumns } from './lib/layout';
 import { buildPlan, selectedEvents, type Lookup } from './lib/plan';
 import { matchEvents } from './lib/search';
 import { parseShareHash } from './lib/share';
@@ -20,6 +21,13 @@ type View = 'timetable' | 'list' | 'apply' | 'schedule';
 
 const db: Lookup = { sessionById, eventByNo, areaOf: sessionArea };
 const isKnown = (id: string) => sessionById.has(id);
+const gridColumns = buildColumns(
+  program.areas.map((a) => a.id),
+  program.places,
+  program.sessions,
+  sessionArea,
+  (s) => eventByNo.get(s.event)?.placeText ?? '',
+);
 
 export default function App() {
   const now = useNow();
@@ -126,7 +134,7 @@ export default function App() {
         {view === 'timetable' && (
           <main className="main">
             <Timetable
-              places={program.places}
+              columns={gridColumns}
               sessions={fixedSessions}
               selected={selectedSet}
               apply={state.apply}

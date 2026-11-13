@@ -1,6 +1,18 @@
 import { describe, expect, it } from 'vitest';
 import { eventByNo, sessionArea, sessionById } from '../src/data';
-import { areaMoves, cardRect, conflictingIds, groupByArea, minutesToOffset, GRID_START, SUB_PX } from '../src/lib/layout';
+import {
+  areaMoves,
+  buildColumns,
+  cardRect,
+  columnWidths,
+  conflictingIds,
+  groupByArea,
+  laneCode,
+  minutesToOffset,
+  GRID_START,
+  LANE_COL_PX,
+  SUB_PX,
+} from '../src/lib/layout';
 import { buildPlan, resolveItem, selectedEvents, type Lookup } from '../src/lib/plan';
 import { matchEvents } from '../src/lib/search';
 import { program } from '../src/data';
@@ -16,6 +28,23 @@ describe('layout', () => {
 
   it('groups the grid columns by area in E, S, C, W order', () => {
     expect(groupByArea(program.places).map((g) => g.area)).toEqual(['E', 'S', 'C', 'W']);
+  });
+
+  it('adds one narrow lane per all-day session after the rooms of its area', () => {
+    const cols = buildColumns(['E', 'S', 'C', 'W'], program.places, program.sessions, sessionArea, (s) => eventByNo.get(s.event)?.placeText ?? '');
+    expect(cols.filter((c) => c.kind === 'place')).toHaveLength(program.places.length);
+    expect(cols.filter((c) => c.kind === 'lane')).toHaveLength(program.sessions.filter((s) => s.open).length);
+    expect(groupByArea(cols).map((g) => g.area)).toEqual(['E', 'S', 'C', 'W']);
+    expect(cols.slice(0, 6).map((c) => (c.kind === 'place' ? c.place.id : c.session.id))).toEqual(['SD', 'E2K', 'E2F', 'E2AV', '01', '05']);
+    const widths = columnWidths(cols, 375);
+    expect(new Set(widths)).toEqual(new Set([96, LANE_COL_PX]));
+  });
+
+  it('shortens a place text to a lane header code', () => {
+    expect(laneCode('C-1 総合開発推進棟 １階 大会議室')).toBe('C-1');
+    expect(laneCode('S-10 総合環境試験棟')).toBe('S-10');
+    expect(laneCode('ロケット広場（屋外）')).toBe('ロケッ');
+    expect(laneCode('グランド')).toBe('グラン');
   });
 
   it('detects overlaps but not back-to-back items', () => {

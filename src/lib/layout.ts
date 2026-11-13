@@ -1,4 +1,4 @@
-import type { AreaId, Place } from '../types';
+import type { AreaId, Place, Session } from '../types';
 import { toMinutes } from './time';
 
 /** Grid geometry. Times are minutes since midnight. */
@@ -44,14 +44,55 @@ export function cardRect(session: Span): CardRect {
   return { top, height: Math.max(bottom - top, SUB_PX) };
 }
 
-export interface AreaGroup {
-  area: AreaId;
-  places: Place[];
+export const LANE_COL_PX = 34; // narrow column of an all-day (drop-in) event
+
+/**
+ * A column of the timetable: a room with fixed-time slots, or a narrow lane that holds
+ * one all-day (drop-in) event.
+ */
+export type Column =
+  | { kind: 'place'; key: string; area: AreaId; place: Place }
+  | { kind: 'lane'; key: string; area: AreaId; session: Session; code: string };
+
+/** Short location for a lane header: the building code ("C-1") or the first characters of the place. */
+export function laneCode(placeText: string): string {
+  const m = /^([ESCW]-\d+)/.exec(placeText);
+  return m ? m[1] : placeText.replace(/[「（(].*$/, '').slice(0, 3);
 }
 
-/** Consecutive places grouped by area (for the two-row header). */
-export function groupByArea(places: Place[]): AreaGroup[] {
-  const groups: AreaGroup[] = [];
+/** Columns in display order: per area, its rooms first, then one lane per drop-in session. */
+export function buildColumns(
+  areas: AreaId[],
+  places: Place[],
+  sessions: Session[],
+  areaOf: (s: Session) => AreaId,
+  placeTextOf: (s: Session) => string,
+): Column[] {
+  const out: Column[] = [];
+  for (const area of areas) {
+    for (const p of places) if (p.area === area) out.push({ kind: 'place', key: 'p:' + p.id, area, place: p });
+    const lanes = sessions.filter((s) => s.open && areaOf(s) === area).sort((a, b) => a.id.localeCompare(b.id));
+    for (const s of lanes) out.push({ kind: 'lane', key: 'l:' + s.id, area, session: s, code: laneCode(placeTextOf(s)) });
+  }
+  return out;
+}
+
+/** Pixel widths: lanes are fixed, rooms share the rest (never below the minimum). */
+export function columnWidths(columns: Column[], available: number): number[] {
+  const lanes = columns.filter((c) => c.kind === 'lane').length;
+  const rooms = columns.length - lanes;
+  const room = Math.max(VENUE_COL_MIN_PX, rooms > 0 ? Math.floor((available - TIME_COL_PX - lanes * LANE_COL_PX) / rooms) : 0);
+  return columns.map((c) => (c.kind === 'lane' ? LANE_COL_PX : room));
+}
+
+export interface AreaGroup<T> {
+  area: AreaId;
+  places: T[];
+}
+
+/** Consecutive columns grouped by area (for the two-row header). */
+export function groupByArea<T extends { area: AreaId }>(places: T[]): AreaGroup<T>[] {
+  const groups: AreaGroup<T>[] = [];
   for (const p of places) {
     const last = groups[groups.length - 1];
     if (last && last.area === p.area) last.places.push(p);

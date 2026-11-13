@@ -14,15 +14,22 @@ interface Props {
   mine: MyApply | undefined;
   dimmed: boolean; // search active and this card does not match
   matched: boolean; // search active and this card matches
+  /** narrow all-day lane: vertical title, no time row */
+  lane?: boolean;
+  /** draw this time range instead of the session's own (all-day events with a break) */
+  span?: { start: string; end: string };
   onOpen: (eventNo: string) => void;
 }
 
-export function SessionCard({ session, column, selected, mine, dimmed, matched, onOpen }: Props) {
-  const rect = cardRect(session);
+export function SessionCard({ session, column, selected, mine, dimmed, matched, lane = false, span, onOpen }: Props) {
+  const time = span ?? session;
+  const rect = cardRect(time);
   const event = eventByNo.get(session.event);
   const title = event?.title ?? session.event;
   const cls =
-    'card need-' +
+    'card' +
+    (lane ? ' card-lane' : '') +
+    ' need-' +
     (session.needs ?? 'free') +
     (selected ? ' is-selected' : '') +
     (mine === 'won' ? ' is-won' : '') +
@@ -36,13 +43,17 @@ export function SessionCard({ session, column, selected, mine, dimmed, matched, 
       style={{ gridRow: 2, gridColumn: column, top: rect.top, height: rect.height }}
       onClick={() => onOpen(session.event)}
       aria-pressed={selected}
-      title={`${session.event} ${session.start}-${session.end} ${title}`}
+      title={`${session.event} ${time.start}-${time.end} ${title}${lane ? '（出入り自由）' : ''}`}
     >
-      <span className="card-time">
+      {lane ? (
         <span className="card-no">{session.event}</span>
-        {session.start}–{session.end}
-        {session.needs && <span className="card-need">{NEED_SHORT[session.needs]}</span>}
-      </span>
+      ) : (
+        <span className="card-time">
+          <span className="card-no">{session.event}</span>
+          {session.start}–{session.end}
+          {session.needs && <span className="card-need">{NEED_SHORT[session.needs]}</span>}
+        </span>
+      )}
       <span className="card-title">
         {session.label}
         {session.sub ? `${session.sub}｜` : ''}
