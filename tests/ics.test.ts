@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { eventByNo, program, sessionArea, sessionById, sessionPlace, sessionTitle, NEEDS_LABEL } from '../src/data';
-import { buildDeadlineIcs, buildScheduleIcs, foldLine, icsEscape, jstToUtcStamp } from '../src/lib/ics';
+import { hasUpcomingDeadline, buildDeadlineIcs, buildScheduleIcs, foldLine, icsEscape, jstToUtcStamp } from '../src/lib/ics';
 import { buildPlan } from '../src/lib/plan';
 
 const now = new Date('2026-11-14T03:00:00Z');
@@ -64,5 +64,17 @@ describe('deadline calendar', () => {
     expect(text).toContain('DTEND:20261123T145959Z');
     expect(text).not.toContain('UID:deadline-14@');
     expect(text).not.toContain('UID:deadline-48@');
+    expect(text).not.toContain('VALARM');
+  });
+
+  it('writes one event with two reminders when asked', () => {
+    const nowMs = Date.parse('2026-11-18T12:00:00+09:00');
+    const text = buildDeadlineIcs([eventByNo.get('02')!], nowMs, { calendarName: '締切', now, alarms: true }).replace(/\r\n /g, '');
+    expect(text.match(/BEGIN:VEVENT/g)).toHaveLength(1);
+    expect(text.match(/BEGIN:VALARM/g)).toHaveLength(2);
+    expect(text).toContain('TRIGGER:-PT23H30M');
+    expect(text).toContain('TRIGGER:-PT2H30M');
+    expect(text.indexOf('END:VALARM')).toBeLessThan(text.indexOf('END:VEVENT'));
+    expect([hasUpcomingDeadline(eventByNo.get('02')!, nowMs), hasUpcomingDeadline(eventByNo.get('14')!, nowMs), hasUpcomingDeadline(eventByNo.get('48')!, nowMs)]).toEqual([true, false, false]);
   });
 });

@@ -62,6 +62,8 @@ export interface IcsOptions {
   calendarName: string;
   /** app URL put into each event's description */
   appUrl?: string;
+  /** add reminders (VALARM) 24 hours and 3 hours before each deadline */
+  alarms?: boolean;
   /** fixed DTSTAMP for deterministic output (tests); defaults to now */
   now?: Date;
 }
@@ -123,15 +125,26 @@ export function buildScheduleIcs(input: ScheduleIcsInput, opts: IcsOptions): str
   return wrap(body, opts);
 }
 
+/** Can this event's application deadline still be put into a calendar? (announced, and not passed yet) */
+export function hasUpcomingDeadline(e: EventInfo, nowMs: number): boolean {
+  const ap = e.apply;
+  return !!ap && !ap.pending && !!ap.end && Date.parse(ap.end) > nowMs;
+}
+
+/** The calendar entry starts 30 minutes before the deadline, so these fire 24 hours and 3 hours before the deadline itself. */
+const ALARMS: [string, string][] = [
+  ['-PT23H30M', '締切の24時間前'],
+  ['-PT2H30M', '締切の3時間前'],
+];
+
 /** Application deadlines (30-minute events ending at the deadline) for events still accepting applications. */
 export function buildDeadlineIcs(events: EventInfo[], nowMs: number, opts: IcsOptions): string {
   const dtstamp = stamp((opts.now ?? new Date(nowMs)).getTime());
   const body: string[] = [];
   for (const e of events) {
     const ap = e.apply;
-    if (!ap || ap.pending || !ap.end) continue;
+    if (!ap || !ap.end || !hasUpcomingDeadline(e, nowMs)) continue;
     const end = Date.parse(ap.end);
-    if (end <= nowMs) continue;
     const desc: string[] = [];
     if (ap.target) desc.push(`対象: ${ap.target}`);
     if (ap.url) desc.push(`予約ページ: ${ap.url}`);
@@ -147,9 +160,21 @@ export function buildDeadlineIcs(events: EventInfo[], nowMs: number, opts: IcsOp
       `DESCRIPTION:${icsEscape(desc.join('\n'))}`,
     );
     if (ap.url) body.push(`URL:${ap.url}`);
+    if (opts.alarms) {
+      for (const [trigger, label] of ALARMS) {
+        body.push('BEGIN:VALARM', 'ACTION:DISPLAY', `DESCRIPTION:${icsEscape(`【${label}】${e.no} ${e.title} の申込締切`)}`, `TRIGGER:${trigger}`, 'END:VALARM');
+      }
+    }
     body.push('END:VEVENT');
   }
   return wrap(body, opts);
+}
+
+/** One event's application deadline with reminders, saved as an .ics file. */
+export function downloadDeadlineReminder(e: EventInfo, nowMs: number): void {
+  const appUrl = typeof location !== 'undefined' ? location.origin + import.meta.env.BASE_URL : undefined;
+  const text = buildDeadlineIcs([e], nowMs, { calendarName: '特別公開2026 申込締切', appUrl, alarms: true });
+  downloadText(text, `tksc-openday2026-deadline-${e.no}.ics`, 'text/calendar;charset=utf-8');
 }
 
 /** Hand a text file to the browser as a download. */

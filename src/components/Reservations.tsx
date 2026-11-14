@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import type { EventInfo, MyApply } from '../types';
 import { program } from '../data';
 import { METHOD_LABEL, applyPhase, deadlineText, isUrgent, sortForApplying } from '../lib/apply';
-import { buildDeadlineIcs, downloadText } from '../lib/ics';
+import { buildDeadlineIcs, downloadDeadlineReminder, downloadText, hasUpcomingDeadline } from '../lib/ics';
 import { formatDateJa } from '../lib/time';
 import { EventNo, MyApplyPicker, PhasePill } from './Badges';
 
@@ -46,13 +46,16 @@ export function Reservations({ events, apply, nowMs, onSetApply, onOpen }: Props
           </a>
           と予約ページで最新の内容を確認してください。
         </p>
+        <p className="notice">
+          🔔 忘れたくない申込は、イベントごとの「締切をリマインド」でカレンダーに登録できます。締切の24時間前と3時間前に、カレンダーアプリが通知します。
+        </p>
         <div className="resv-summary">
           <span>受付中 {openCount}件</span>
           <span>申込済 {count('applied')}</span>
           <span>当選・確定 {count('won')}</span>
           <span>落選 {count('lost')}</span>
           <button type="button" className="btn btn-sm" onClick={exportDeadlines} disabled={openCount === 0}>
-            📅 締切をカレンダーに書き出し
+            📅 全部の締切をまとめて書き出し（通知なし）
           </button>
         </div>
         <ol className="resv-list">
@@ -100,6 +103,16 @@ export function Reservations({ events, apply, nowMs, onSetApply, onOpen }: Props
                     <span className="resv-nolink">
                       {ph === 'pending' ? '予約ページは未公開' : ph === 'before' ? '受付開始後に予約ページが開きます' : '受付は終了しました'}
                     </span>
+                  )}
+                  {hasUpcomingDeadline(e, nowMs) && (
+                    <button
+                      type="button"
+                      className="btn btn-sm"
+                      onClick={() => downloadDeadlineReminder(e, nowMs)}
+                      title="このイベントの申込締切をカレンダーファイル (.ics) に書き出します。開くとカレンダーに追加でき、締切の24時間前と3時間前に通知されます。"
+                    >
+                      🔔 締切をリマインド
+                    </button>
                   )}
                   <MyApplyPicker value={apply[e.no]} onChange={(v) => onSetApply(e.no, v)} />
                 </div>
