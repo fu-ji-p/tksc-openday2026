@@ -1,5 +1,5 @@
 import type { AreaId, Place, Session } from '../types';
-import { toMinutes } from './time';
+import { fromMinutes, toMinutes } from './time';
 
 /** Grid geometry. Times are minutes since midnight. */
 export const GRID_START = 10 * 60; // 10:00
@@ -104,6 +104,24 @@ export function groupByArea<T extends { area: AreaId }>(places: T[]): AreaGroup<
 /** Two spans overlap when their time ranges intersect (touching ends do not count). */
 export function overlaps(a: Span, b: Span): boolean {
   return toMinutes(a.start) < toMinutes(b.end) && toMinutes(b.start) < toMinutes(a.end);
+}
+
+/**
+ * Time range to draw for each fixed session. Slots that share a room and overlap
+ * (rolling starts: a 1-hour activity starting every 30 minutes) are cut at the next
+ * start so the cards stack instead of covering each other.
+ */
+export function drawSpans<T extends Span & { id: string; place?: string }>(sessions: T[]): Map<string, Span> {
+  const out = new Map<string, Span>();
+  for (const s of sessions) {
+    let end = toMinutes(s.end);
+    for (const o of sessions) {
+      const os = toMinutes(o.start);
+      if (o !== s && o.place === s.place && os > toMinutes(s.start) && os < end) end = os;
+    }
+    if (end !== toMinutes(s.end)) out.set(s.id, { start: s.start, end: fromMinutes(end, true) });
+  }
+  return out;
 }
 
 export interface TimeItem extends Span {

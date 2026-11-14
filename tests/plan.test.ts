@@ -6,6 +6,7 @@ import {
   cardRect,
   columnWidths,
   conflictingIds,
+  drawSpans,
   groupByArea,
   laneCode,
   minutesToOffset,
@@ -20,6 +21,17 @@ import { program } from '../src/data';
 const db: Lookup = { sessionById, eventByNo, areaOf: sessionArea };
 
 describe('layout', () => {
+  it('cuts overlapping slots of a room at the next start so the cards stack', () => {
+    const spans = drawSpans([
+      { id: 'a', place: 'X', start: '10:30', end: '11:30' },
+      { id: 'b', place: 'X', start: '11:00', end: '12:00' },
+      { id: 'c', place: 'X', start: '12:00', end: '13:00' },
+      { id: 'd', place: 'Y', start: '11:00', end: '12:00' },
+    ]);
+    expect(spans.get('a')).toEqual({ start: '10:30', end: '11:00' });
+    expect([spans.has('b'), spans.has('c'), spans.has('d')]).toEqual([false, false, false]);
+  });
+
   it('places cards proportionally to their duration', () => {
     expect(minutesToOffset(GRID_START)).toBe(0);
     expect(cardRect({ start: '10:05', end: '11:00' })).toEqual({ top: SUB_PX, height: 11 * SUB_PX });
@@ -35,7 +47,7 @@ describe('layout', () => {
     expect(cols.filter((c) => c.kind === 'place')).toHaveLength(program.places.length);
     expect(cols.filter((c) => c.kind === 'lane')).toHaveLength(program.sessions.filter((s) => s.open).length);
     expect(groupByArea(cols).map((g) => g.area)).toEqual(['E', 'S', 'C', 'W']);
-    expect(cols.slice(0, 6).map((c) => (c.kind === 'place' ? c.place.id : c.session.id))).toEqual(['SD', 'E2K', 'E2F', 'E2AV', '01', '05']);
+    expect(cols.slice(0, 7).map((c) => (c.kind === 'place' ? c.place.id : c.session.id))).toEqual(['SD', 'E2K', 'E2K1', 'E2F', 'E2AV', '01', '09']);
     const widths = columnWidths(cols, 375);
     expect(new Set(widths)).toEqual(new Set([96, LANE_COL_PX]));
   });

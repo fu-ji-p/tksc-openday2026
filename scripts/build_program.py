@@ -36,11 +36,13 @@ AREAS = [
 PLACES = [
     {"id": "SD", "area": "E", "code": "展示館", "building": "展示館", "room": "スペースドーム"},
     {"id": "E2K", "area": "E", "code": "E-2", "building": "広報・情報棟", "room": "記者会見室"},
+    {"id": "E2K1", "area": "E", "code": "E-2", "building": "広報・情報棟", "room": "広報普及室１"},
     {"id": "E2F", "area": "E", "code": "E-2", "building": "広報・情報棟", "room": "広報普及室２"},
     {"id": "E2AV", "area": "E", "code": "E-2", "building": "広報・情報棟", "room": "視聴覚室"},
     {"id": "S3", "area": "S", "code": "S-3", "building": "6mφ放射計スペースチャンバ棟", "room": "1階ロビー"},
     {"id": "S4", "area": "S", "code": "S-4", "building": "8mφ放射計スペースチャンバ棟", "room": ""},
     {"id": "S10", "area": "S", "code": "S-10", "building": "総合環境試験棟", "room": "クリーンルーム"},
+    {"id": "C1F", "area": "C", "code": "C-1", "building": "総合開発推進棟", "room": "1階 ホワイエ"},
     {"id": "C1S", "area": "C", "code": "C-1", "building": "総合開発推進棟", "room": "1階 小会議室"},
     {"id": "C1S2", "area": "C", "code": "C-1", "building": "総合開発推進棟", "room": "2階 小会議室２"},
     {"id": "C1MB", "area": "C", "code": "C-1", "building": "総合開発推進棟", "room": "2階 中会議室Ｂ"},
@@ -89,7 +91,9 @@ OVERRIDES = {
     "03": {"summary": "宇宙の質問に手話や筆談で答えるコーナー。宇宙手話の紹介も。", "slots": slots("E2K", ("14:10", "15:30"))},
     "04": {"tickets": [("12:00", "②の回")], "summary": "JAXA女性職員が進路選択やキャリアを語るトーク。①は先着順、②は整理券。",
            "slots": [dict(x, needs=n) for x, n in zip(slots("E2K", ("10:15", "11:00"), ("12:45", "13:30")), ["first", "ticket"])]},
-    "05": {"summary": "衛星画像を織り込んだジーンズの紹介と、ミニチュアの服づくりワークショップ。",
+    # 回は予約フォームの「参加希望回」から（公式一覧は 10:00～15:30 のみ）。終了時刻は未公表のため目安。
+    "05": {"summary": "衛星画像を織り込んだジーンズの紹介と、ミニチュアの服づくりワークショップ。予約フォームでは 10:30・12:00・13:30 開始の3回から選ぶ。",
+           "open": None, "slots": slots("E2K1", *step("10:30", 60, 3, 90), est=True),
            "method": "lottery", "result": "11/17(火) までに当選者のみへメールで通知", "resultBy": "2026-11-17T23:59:00+09:00"},
     "06": {"summary": "「みちびき」と測位の今とこれからをプロジェクトマネージャが話すミニトーク。", "slots": slots("E2F", ("11:00", "12:00"), ("13:00", "14:00")),
            "method": "first", "result": "先着順。公式の案内では「当日までに当選者のみへメールで通知」"},
@@ -114,7 +118,9 @@ OVERRIDES = {
     "20": {"summary": "水ロケットの打上げ体験（工作なし）。受付は午前11:30・午後15:00まで。", "open": [["10:00", "12:00"], ["13:30", "15:30"]], "visit": 20},
     "21": {"summary": "EarthCARE（はくりゅう）のこいのぼり展示。", "visit": 10},
     "22": {"summary": "EarthCARE の実物大タペストリー展示。", "visit": 10},
-    "23": {"summary": "オリジナル人工衛星を作って自撮りする工作体験（約1時間）。予約ページでは10:30〜14:30の30分ごと・計8枠。", "visit": 60,
+    # 回は予約ページ (Bookings) の案内から: 10:30 から30分ごとに開始・計8枠・所要約1時間（前後の回と重なる）。
+    "23": {"summary": "オリジナル人工衛星を作って自撮りする工作体験（約1時間）。10:30 から30分ごとに開始する8回（各回3組）。",
+           "open": None, "slots": slots("C1F", *step("10:30", 60, 8, 30), est=True),
            "method": "first", "result": "先着順（予約できれば確定）。キャンセルが出ると空きが出ます。締切は変更の可能性あり"},
     "24": {"summary": "人工衛星の基礎と、衛星地球観測の重点テーマのポスター紹介。"},
     "25": {"summary": "「きく9号」と歴代「きく」シリーズを模型と動画で紹介。"},
@@ -302,7 +308,8 @@ def main():
         assert 600 <= to_min(s["start"]) < to_min(s["end"]) <= 930 and to_min(s["start"]) % 5 == 0 and to_min(s["end"]) % 5 == 0, s
     for a in fixed:
         for b in fixed:
-            if a["id"] < b["id"] and a["place"] == b["place"] and to_min(a["start"]) < to_min(b["end"]) and to_min(b["start"]) < to_min(a["end"]):
+            # 同じイベントの回が重なるのは可（30分ごとに始まる所要1時間の体験など。画面では次の回の開始までを描く）
+            if a["id"] < b["id"] and a["event"] != b["event"] and a["place"] == b["place"] and to_min(a["start"]) < to_min(b["end"]) and to_min(b["start"]) < to_min(a["end"]):
                 raise AssertionError(f"同じ場所で時間が重なる: {a['id']} {b['id']}")
 
     program = {

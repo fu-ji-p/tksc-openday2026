@@ -18,7 +18,7 @@ interface Props {
   passed?: boolean;
   /** narrow all-day lane: vertical title, no time row */
   lane?: boolean;
-  /** draw this time range instead of the session's own (all-day events with a break) */
+  /** draw this time range instead of the session's own (all-day events with a break, overlapping slots cut at the next start) */
   span?: { start: string; end: string };
   onOpen: (eventNo: string) => void;
 }
@@ -45,7 +45,7 @@ export function SessionCard({ session, column, selected, mine, dimmed, matched, 
       style={{ gridRow: 2, gridColumn: column, top: rect.top, height: rect.height }}
       onClick={() => onOpen(session.event)}
       aria-pressed={selected}
-      title={`${session.event} ${time.start}-${time.end} ${title}${lane ? '（出入り自由）' : ''}${passed ? '（別の回に当選）' : ''}`}
+      title={`${session.event} ${lane ? `${time.start}-${time.end}` : `${session.start}-${session.end}`} ${title}${lane ? '（出入り自由）' : ''}${passed ? '（別の回に当選）' : ''}`}
     >
       {lane ? (
         <span className="card-no">{session.event}</span>

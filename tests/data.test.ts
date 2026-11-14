@@ -17,14 +17,15 @@ describe('program.json', () => {
     for (const s of program.sessions) expect(eventByNo.has(s.event), s.id).toBe(true);
   });
 
-  it('keeps fixed sessions on the grid, on 5-minute steps, without overlaps in a room', () => {
+  it('keeps fixed sessions on the grid, on 5-minute steps, without two events overlapping in a room', () => {
     for (const s of fixedSessions) {
       expect(placeById.has(s.place!), s.id).toBe(true);
       expect(toMinutes(s.start) % 5 + toMinutes(s.end) % 5, s.id).toBe(0);
       expect(toMinutes(s.start) >= GRID_START && toMinutes(s.end) <= GRID_END && toMinutes(s.start) < toMinutes(s.end), s.id).toBe(true);
     }
     for (const a of fixedSessions) for (const b of fixedSessions) {
-      if (a.id < b.id && a.place === b.place) expect(overlaps(a, b), `${a.id} ${b.id}`).toBe(false);
+      // slots of one event may overlap (rolling starts, e.g. 23); the grid then draws each up to the next start
+      if (a.id < b.id && a.event !== b.event && a.place === b.place) expect(overlaps(a, b), `${a.id} ${b.id}`).toBe(false);
     }
   });
 
@@ -58,6 +59,9 @@ describe('program.json', () => {
     expect([needs('04/1'), needs('04/2')]).toEqual(['first', 'ticket']);
     expect([needs('40'), needs('40/1')]).toEqual([undefined, 'ticket']);
     expect([needs('45'), needs('45/L1'), needs('45/M')]).toEqual([undefined, 'apply', 'ticket']);
-    expect([needs('05'), needs('51'), needs('14/1')]).toEqual(['apply', undefined, 'apply']);
+    expect([needs('05/1'), needs('23/8'), needs('51'), needs('14/1')]).toEqual(['apply', 'apply', undefined, 'apply']);
+    // 05 and 23 are booked per slot on their booking pages: no all-day entry
+    expect(program.sessions.some((s) => s.id === '05' || s.id === '23')).toBe(false);
+    expect([sessionsByEvent.get('05')!.length, sessionsByEvent.get('23')!.length]).toEqual([3, 8]);
   });
 });

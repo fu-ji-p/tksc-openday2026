@@ -11,6 +11,7 @@ import {
   SUB_PX,
   TIME_COL_PX,
   columnWidths,
+  drawSpans,
   groupByArea,
   type Column,
   minutesToOffset,
@@ -46,6 +47,7 @@ export function Timetable({ columns: allColumns, sessions: allSessions, selected
     : allColumns;
   // won + picked the winning slot: the event's other application slots fade out
   const wonPicked = wonEventsWithPick(allSessions, selected, apply);
+  const spans = drawSpans(allSessions);
   const ticketEvents = new Set(sessions.filter((s) => s.needs === 'ticket').map((s) => s.event));
   const groups = groupByArea(columns);
   const slots = timeSlots();
@@ -147,6 +149,7 @@ export function Timetable({ columns: allColumns, sessions: allSessions, selected
               key={s.id}
               session={s}
               column={colIndex.get(s.place ?? '') ?? 2}
+              span={spans.get(s.id)}
               selected={selected.has(s.id)}
               mine={s.needs === 'apply' && !isPassedOver(s, selected, wonPicked) ? apply[s.event] : undefined}
               passed={isPassedOver(s, selected, wonPicked)}
