@@ -10,7 +10,7 @@
   "generatedFrom": [
    "https://visit-tsukuba.jaxa.jp/2026openday/assets/data/events.js"
   ],
-  "generatedAt": "2026-11-14"
+  "generatedAt": "2026-11-17"
  },
  "areas": [
   {
@@ -1099,7 +1099,7 @@
     "講演・トークショー",
     "お子様も楽しめる"
    ],
-   "placeText": "W-3 宇宙実験棟 大会議室",
+   "placeText": "W-3 宇宙実験棟 ２階 大会議室",
    "timeText": "①10:30～11:15 ②13:15～14:00 ③14:30～15:15",
    "summary": "油井宇宙飛行士の講演。ISS での生活や宇宙からの景色の話。",
    "participation": [
@@ -1122,7 +1122,7 @@
     "展示",
     "お子様も楽しめる"
    ],
-   "placeText": "W-3 宇宙実験棟 会議室２、３",
+   "placeText": "W-3 宇宙実験棟 ２階 会議室２、３",
    "timeText": "10:00～15:30",
    "summary": "「きぼう」での宇宙実験の紹介。ミニセミナーやクイズも。",
    "participation": []
@@ -1138,7 +1138,7 @@
     "体験",
     "お子様も楽しめる"
    ],
-   "placeText": "W-3 宇宙実験棟 大会議室",
+   "placeText": "W-3 宇宙実験棟 ２階 大会議室",
    "timeText": "11:45～12:30",
    "summary": "宇宙飛行士・宇宙キャスターと未来の宇宙実験を考えるイベント。",
    "participation": [
@@ -1161,7 +1161,7 @@
     "体験",
     "お子様も楽しめる"
    ],
-   "placeText": "W-4 宇宙ステーション運用棟",
+   "placeText": "W-4 宇宙ステーション試験棟 １階",
    "timeText": "10:00～15:30",
    "summary": "有人与圧ローバーの模型・パネル展示とドライビングシミュレータ（本格版は事前申込、簡易版は予約なし）。",
    "participation": [
@@ -1184,7 +1184,7 @@
     "映像",
     "お子様も楽しめる"
    ],
-   "placeText": "W-4 宇宙ステーション運用棟 ２階 VR室",
+   "placeText": "W-4 宇宙ステーション試験棟 ２階 VR室",
    "timeText": "10:00～15:30",
    "summary": "月探査 LUPEX を 3D 立体映像で紹介。",
    "participation": []
@@ -1200,7 +1200,7 @@
     "映像",
     "お子様も楽しめる"
    ],
-   "placeText": "W-4 宇宙ステーション運用棟",
+   "placeText": "W-4 宇宙ステーション試験棟 １階",
    "timeText": "10:00～15:30",
    "summary": "補給機 HTV-X と自動ドッキング実証 JDOCX の展示。",
    "participation": []
@@ -1216,7 +1216,7 @@
     "映像",
     "お子様も楽しめる"
    ],
-   "placeText": "W-4 宇宙ステーション運用棟",
+   "placeText": "W-4 宇宙ステーション試験棟 １階",
    "timeText": "10:00～15:30",
    "summary": "HTV-X を ISS まで誘導する運用体験ゲーム。",
    "participation": []
@@ -1232,7 +1232,7 @@
     "展示",
     "お子様も楽しめる"
    ],
-   "placeText": "W-4 宇宙ステーション運用棟",
+   "placeText": "W-4 宇宙ステーション試験棟 １階",
    "timeText": "10:00～15:30",
    "summary": "HTV-X の愛称を決める投票。",
    "participation": []
@@ -1249,7 +1249,7 @@
     "映像",
     "お子様も楽しめる"
    ],
-   "placeText": "W-4 宇宙ステーション運用棟 ３階 会議室",
+   "placeText": "W-4 宇宙ステーション試験棟 ３階",
    "timeText": "10:00～15:30",
    "summary": "国際宇宙探査センターの活動紹介。なぞ解きも。",
    "participation": []
