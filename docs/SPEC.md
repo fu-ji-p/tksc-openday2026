@@ -32,7 +32,7 @@ src/components/            Timetable, SessionCard, EventList, Reservations, Even
 
 ## 2. データ（data/program.json）
 
-- `events`: 公式のイベント 57 件。`no`（公式のイベント番号）、題名、エリア、場所と時間の文面、参加方法。
+- `events`: 公式のイベント 58 件。`no`（公式のイベント番号）、題名、エリア、場所と時間の文面、参加方法。
   - `apply`: 事前申込の情報。`method`（lottery/first/tbd）、`start`/`end`（受付開始・締切）、`url`（予約ページ）、`result`（結果通知の案内）、`pending`（申込方法が未発表）、`target`（イベントの一部だけが対象のとき）。
   - `ticket`: 当日整理券の配布時間・場所・枚数。
 - `sessions`: 選択の単位。112 件。

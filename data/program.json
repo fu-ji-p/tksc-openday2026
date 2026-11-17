@@ -10,7 +10,7 @@
   "generatedFrom": [
    "https://visit-tsukuba.jaxa.jp/2026openday/assets/data/events.js"
   ],
-  "generatedAt": "2026-11-17"
+  "generatedAt": "2026-11-18"
  },
  "areas": [
   {
@@ -752,7 +752,6 @@
    "participation": [
     "事前申込"
    ],
-   "note": "申込情報は準備中です",
    "apply": {
     "method": "lottery",
     "pending": false,
@@ -1272,6 +1271,22 @@
    "summary": "複数の建物を回るなぞ解きゲーム。用紙は C-1 総合開発推進棟前で配布（最終回は14:50から）。",
    "participation": [],
    "note": "C-1総合開発推進棟前で「なぞ説き用紙」を配布します。※荒天の場合はC-5 宇宙飛行士養成棟の入口"
+  },
+  {
+   "no": "58",
+   "title": "縁の下の力持ち？！宇宙飛行士を支えるロボットたちにせまろう！",
+   "areas": [
+    "W"
+   ],
+   "categories": [
+    "展示",
+    "施設見学",
+    "お子さまも楽しめる"
+   ],
+   "placeText": "W-4 宇宙ステーション試験棟 １階",
+   "timeText": "10:00～15:30",
+   "summary": "Int-Ball2 や TUSK など、ISS で宇宙飛行士を支えるロボットや設備の展示。",
+   "participation": []
   }
  ],
  "sessions": [
@@ -2408,6 +2423,15 @@
    "start": "10:00",
    "end": "15:30",
    "visit": 60
+  },
+  {
+   "id": "58",
+   "event": "58",
+   "open": true,
+   "area": "W",
+   "start": "10:00",
+   "end": "15:30",
+   "visit": 30
   }
  ]
 }

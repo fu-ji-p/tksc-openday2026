@@ -805,7 +805,7 @@
   ],
   "capacity": "",
   "firstCome": "",
-  "note": "申込情報は準備中です",
+  "note": "",
   "participation": [
    "事前申込"
   ],
@@ -1460,5 +1460,30 @@
   "ticketTime": "",
   "time": "10:00～15:30\n※最終回は14:50から実施予定",
   "title": "【宇宙×なぞ解き】ISSから月を目指すワタシに贈る未来日記"
+ },
+ "58": {
+  "applyAfterCloseNotice": "",
+  "applyEnd": "",
+  "applyStart": "",
+  "applyStatus": "",
+  "applyTarget": "",
+  "applyUrl": "",
+  "areas": [
+   "W"
+  ],
+  "capacity": "",
+  "firstCome": "",
+  "note": "",
+  "participation": [],
+  "participationNote": "",
+  "place": "W-4 宇宙ステーション試験棟 １階",
+  "status": "",
+  "target": "",
+  "ticketCount": "",
+  "ticketPlace": "",
+  "ticketTarget": "",
+  "ticketTime": "",
+  "time": "10:00～15:30",
+  "title": "縁の下の力持ち？！宇宙飛行士を支えるロボットたちにせまろう！"
  }
 }

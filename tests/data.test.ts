@@ -4,8 +4,8 @@ import { GRID_END, GRID_START, overlaps } from '../src/lib/layout';
 import { toMinutes } from '../src/lib/time';
 
 describe('program.json', () => {
-  it('has the 57 published events, 14 with advance application and 4 with tickets', () => {
-    expect(program.events).toHaveLength(57);
+  it('has the 58 published events, 14 with advance application and 4 with tickets', () => {
+    expect(program.events).toHaveLength(58);
     expect(program.events.filter((e) => e.apply)).toHaveLength(14);
     expect(program.events.filter((e) => e.ticket)).toHaveLength(4);
   });
