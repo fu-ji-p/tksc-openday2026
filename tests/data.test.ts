@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { eventByNo, fixedSessions, placeById, program, sessionsByEvent } from '../src/data';
+import { LATEST_UPDATE, eventByNo, fixedSessions, placeById, program, sessionsByEvent, updates } from '../src/data';
 import { GRID_END, GRID_START, overlaps } from '../src/lib/layout';
 import { toMinutes } from '../src/lib/time';
 
@@ -65,5 +65,23 @@ describe('program.json', () => {
     expect([sessionsByEvent.get('05')!.length, sessionsByEvent.get('23')!.length]).toEqual([3, 8]);
     // 51: drop-in exhibition + 8 simulator slots booked on the tokubetsu-yuutan site
     expect(sessionsByEvent.get('51')!.map((s) => s.needs ?? '-')).toEqual(['-', ...Array(8).fill('apply')]);
+  });
+});
+
+describe('updates.json', () => {
+  it('lists days newest first, each with text and only known event numbers', () => {
+    expect(updates.length).toBeGreaterThan(0);
+    const dates = updates.map((u) => u.date);
+    for (const d of dates) expect(d).toMatch(/^2026-\d{2}-\d{2}$/);
+    expect([...dates].sort().reverse()).toEqual(dates);
+    expect(new Set(dates).size).toBe(dates.length);
+    expect(LATEST_UPDATE).toBe(dates[0]);
+    for (const u of updates) {
+      expect(u.items.length, u.date).toBeGreaterThan(0);
+      for (const it of u.items) {
+        expect(it.text.trim().length, u.date).toBeGreaterThan(0);
+        if (it.no) expect(eventByNo.has(it.no), `${u.date} ${it.no}`).toBe(true);
+      }
+    }
   });
 });

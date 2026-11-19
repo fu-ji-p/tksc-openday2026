@@ -95,6 +95,17 @@ export interface Session {
   needs?: Needs;
 }
 
+/** One day's changes found on the official site (data/updates.json, newest first). */
+export interface UpdateItem {
+  /** event number the change is about; omitted for notes that cover several events */
+  no?: string;
+  text: string;
+}
+export interface UpdateEntry {
+  date: string; // YYYY-MM-DD
+  items: UpdateItem[];
+}
+
 export interface Program {
   event: {
     name: string;

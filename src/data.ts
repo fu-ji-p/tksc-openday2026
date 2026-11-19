@@ -1,8 +1,12 @@
 import programJson from '../data/program.json';
-import type { AreaId, EventInfo, Needs, Place, Program, Session } from './types';
+import updatesJson from '../data/updates.json';
+import type { UpdateEntry, AreaId, EventInfo, Needs, Place, Program, Session } from './types';
 
 export const program = programJson as unknown as Program;
 export const DATE = program.event.date;
+/** changes found on the official site, newest first */
+export const updates = updatesJson as UpdateEntry[];
+export const LATEST_UPDATE = updates[0]?.date ?? '';
 export const placeById = new Map<string, Place>(program.places.map((p) => [p.id, p]));
 export const eventByNo = new Map<string, EventInfo>(program.events.map((e) => [e.no, e]));
 export const sessionById = new Map<string, Session>(program.sessions.map((s) => [s.id, s]));

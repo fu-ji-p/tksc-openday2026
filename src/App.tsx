@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { DATE, eventByNo, fixedSessions, program, sessionArea, sessionById } from './data';
+import { DATE, LATEST_UPDATE, eventByNo, fixedSessions, program, sessionArea, sessionById } from './data';
 import { EventDetail } from './components/EventDetail';
 import { EventList } from './components/EventList';
 import { MySchedule } from './components/MySchedule';
@@ -7,6 +7,7 @@ import { Reservations } from './components/Reservations';
 import { SearchBar } from './components/SearchBar';
 import { SettingsMenu } from './components/SettingsMenu';
 import { Timetable } from './components/Timetable';
+import { Updates } from './components/Updates';
 import { useNow } from './hooks/useNow';
 import { useSchedule } from './hooks/useSchedule';
 import { applyPhase, isUrgent } from './lib/apply';
@@ -21,6 +22,8 @@ type View = 'timetable' | 'list' | 'apply' | 'schedule';
 
 const db: Lookup = { sessionById, eventByNo, areaOf: sessionArea };
 const ONLY_MINE_KEY = 'tksc-openday2026.onlyMine';
+/** newest update date the visitor has opened (UI convenience, separate from the schedule) */
+const SEEN_UPDATES_KEY = 'tksc-openday2026.seenUpdates';
 const isKnown = (id: string) => sessionById.has(id);
 const gridColumns = buildColumns(
   program.areas.map((a) => a.id),
@@ -56,6 +59,26 @@ export default function App() {
       /* private mode: keep it for this visit only */
     }
   }, []);
+
+  // "更新情報": a dot on the button until the newest entry has been opened once
+  const [seenUpdates, setSeenUpdates] = useState(() => {
+    try {
+      return window.localStorage.getItem(SEEN_UPDATES_KEY) ?? '';
+    } catch {
+      return '';
+    }
+  });
+  const [updatesOpen, setUpdatesOpen] = useState<string | null>(null); // value = seen date when opened
+  const hasNewUpdate = LATEST_UPDATE !== '' && LATEST_UPDATE > seenUpdates;
+  const openUpdates = () => {
+    setUpdatesOpen(seenUpdates);
+    setSeenUpdates(LATEST_UPDATE);
+    try {
+      window.localStorage.setItem(SEEN_UPDATES_KEY, LATEST_UPDATE);
+    } catch {
+      /* private mode */
+    }
+  };
 
   const [query, setQuery] = useState('');
   const matchSet = useMemo(() => matchEvents(program.events, query), [query]);
@@ -112,6 +135,14 @@ export default function App() {
           <span className="topbar-date">
             {formatDateJa(DATE)} {program.event.open}–{program.event.close}
           </span>
+          <button
+            type="button"
+            className={'topbtn' + (hasNewUpdate ? ' has-new' : '')}
+            onClick={openUpdates}
+            aria-label={hasNewUpdate ? '更新情報（新しい更新あり）' : '更新情報'}
+          >
+            更新情報
+          </button>
           <button type="button" className="iconbtn" aria-label="設定" onClick={() => setSettingsOpen(true)}>
             ⚙
           </button>
@@ -192,6 +223,7 @@ export default function App() {
             onClose={close}
           />
         )}
+        {updatesOpen !== null && <Updates seenBefore={updatesOpen} onOpenEvent={setOpenNo} onClose={() => setUpdatesOpen(null)} />}
         {settingsOpen && (
           <SettingsMenu
             state={state}
