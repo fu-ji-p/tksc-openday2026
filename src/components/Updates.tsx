@@ -9,7 +9,7 @@ interface Props {
   onClose: () => void;
 }
 
-/** "What changed on the official site": the official page shows no change log, so the daily check records one here. */
+/** "What changed on the official site", as recorded by the daily data check. */
 export function Updates({ seenBefore, onOpenEvent, onClose }: Props) {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -34,11 +34,11 @@ export function Updates({ seenBefore, onOpenEvent, onClose }: Props) {
         </header>
         <div className="sheet-body">
           <p className="notice">
-            公式サイトには更新情報が出ないため、このアプリが毎朝
+            最新の内容は
             <a href={program.event.site} target="_blank" rel="noreferrer">
               公式サイト
             </a>
-            を確認し、見つけた変更をここに載せています。最新の内容は公式サイトで確認してください。
+            をご確認ください。
           </p>
           {updates.length === 0 && <p className="sched-none">まだ更新はありません。</p>}
           {updates.map((u) => (
