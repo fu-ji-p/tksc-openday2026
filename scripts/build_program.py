@@ -16,7 +16,7 @@ import json
 import re
 import sys
 import urllib.request
-from datetime import date
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 SOURCE_URL = "https://visit-tsukuba.jaxa.jp/2026openday/assets/data/events.js"
@@ -347,6 +347,11 @@ def main():
     (ROOT / "data").mkdir(exist_ok=True)
     (ROOT / "data" / "program.json").write_text(json.dumps(program, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     snap_path.write_text(json.dumps(snapshot, ensure_ascii=False, indent=1, sort_keys=True) + "\n", encoding="utf-8")
+    if len(sys.argv) <= 1:
+        # 公式サイトを最後に確認した日時（変更がなくても更新する）。アプリが実行時に読み込んで「最終確認」として表示する。
+        now = datetime.now(timezone(timedelta(hours=9))).replace(second=0, microsecond=0)
+        (ROOT / "public").mkdir(exist_ok=True)
+        (ROOT / "public" / "checked.json").write_text(json.dumps({"checkedAt": now.isoformat()}) + "\n", encoding="utf-8")
 
     n_apply = sum(1 for e in events if "apply" in e)
     n_ticket = sum(1 for e in events if "ticket" in e)

@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import { shareUrl } from '../lib/share';
 import { program } from '../data';
-import { formatDateJa } from '../lib/time';
+import { DataFreshness } from './DataFreshness';
 import { parseScheduleJson, serializeSchedule, type ScheduleState } from '../lib/storage';
 
 interface Props {
@@ -151,9 +151,8 @@ export function SettingsMenu({ state, visibleCount, onReplace, onClear, onClose 
           <section className="about">
             <h3>このアプリについて（v{__APP_VERSION__}）</h3>
             <p className="hint">
-              このアプリは個人が作成した非公式ツールで、JAXA 公式のものではありません。内容は{' '}
-              {formatDateJa(program.event.generatedAt)} 時点の公開情報をもとに作成しており、その後の変更（申込方法の発表、時間の変更、中止など）が
-              反映されていない場合があります。受付状況は端末の時計から判定した目安です。申込や来場の前に必ず
+              このアプリは個人が作成した非公式ツールで、JAXA 公式のものではありません。内容は公式サイトの公開情報をもとに作成しています。
+              <DataFreshness />。確認の後の変更（申込方法の発表、時間の変更、中止など）は反映されていない場合があります。受付状況は端末の時計から判定した目安です。申込や来場の前に必ず
               <a href={program.event.site} target="_blank" rel="noreferrer">
                 公式サイト
               </a>

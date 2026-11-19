@@ -1,9 +1,10 @@
 import type { EventInfo, MyApply } from '../types';
-import { DATE, NEEDS_LABEL, program, sessionPlace, sessionTitle } from '../data';
+import { DATE, NEEDS_LABEL, sessionPlace, sessionTitle } from '../data';
 import { MY_APPLY_LABEL, applyPhase, deadlineText } from '../lib/apply';
 import { buildScheduleIcs, downloadText } from '../lib/ics';
 import { hoursText, type Plan, type PlanItem } from '../lib/plan';
 import { formatDateJa } from '../lib/time';
+import { DataFreshness } from './DataFreshness';
 
 export const ICS_FILENAME = 'tksc-openday2026-myschedule.ics';
 
@@ -235,8 +236,8 @@ export function MySchedule({ plan, apply, nowMs, print = false, onOpen, onRemove
       )}
       {print && (
         <p className="print-foot">
-          このアプリは個人が作成したもので、JAXA 公式のものではありません。内容は {formatDateJa(program.event.generatedAt)}
-          時点の公開情報にもとづきます。最新情報は公式サイトをご確認ください。（アプリ v{__APP_VERSION__}）
+          このアプリは個人が作成したもので、JAXA 公式のものではありません。
+          <DataFreshness />。最新情報は公式サイトをご確認ください。（アプリ v{__APP_VERSION__}）
         </p>
       )}
     </div>

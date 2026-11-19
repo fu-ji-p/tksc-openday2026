@@ -3,8 +3,8 @@ import type { EventInfo, MyApply } from '../types';
 import { program } from '../data';
 import { METHOD_LABEL, applyPhase, deadlineText, isUrgent, sortForApplying } from '../lib/apply';
 import { buildDeadlineIcs, downloadDeadlineReminder, downloadText, hasUpcomingDeadline } from '../lib/ics';
-import { formatDateJa } from '../lib/time';
 import { EventNo, MyApplyPicker, PhasePill } from './Badges';
+import { DataFreshness } from './DataFreshness';
 
 interface Props {
   events: EventInfo[];
@@ -39,8 +39,8 @@ export function Reservations({ events, apply, nowMs, onSetApply, onOpen }: Props
           事前申込 <span className="page-h-n">{applyEvents.length}件</span>
         </h2>
         <p className="notice">
-          締切の近い順に並べています。受付状況は端末の時計から判定した目安で、{formatDateJa(program.event.generatedAt)}
-          時点の公式情報をもとにしています。申込の前に必ず
+          締切の近い順に並べています。受付状況は端末の時計から判定した目安です。
+          <DataFreshness />。申込の前に必ず
           <a href={program.event.site} target="_blank" rel="noreferrer">
             公式サイト
           </a>

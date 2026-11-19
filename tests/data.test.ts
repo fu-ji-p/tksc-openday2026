@@ -85,3 +85,12 @@ describe('updates.json', () => {
     }
   });
 });
+
+describe('public/checked.json', () => {
+  it('holds the time of the last check of the official site (JST ISO)', async () => {
+    const { readFileSync } = await import('node:fs');
+    const j = JSON.parse(readFileSync(new URL('../public/checked.json', import.meta.url), 'utf8')) as { checkedAt: string };
+    expect(j.checkedAt).toMatch(/^2026-\d{2}-\d{2}T\d{2}:\d{2}:00\+09:00$/);
+    expect(j.checkedAt.slice(0, 10) >= program.event.generatedAt).toBe(true);
+  });
+});
