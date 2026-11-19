@@ -10,7 +10,7 @@
   "generatedFrom": [
    "https://visit-tsukuba.jaxa.jp/2026openday/assets/data/events.js"
   ],
-  "generatedAt": "2026-11-18"
+  "generatedAt": "2026-11-20"
  },
  "areas": [
   {
@@ -135,6 +135,13 @@
    "code": "W-3",
    "building": "宇宙実験棟",
    "room": "大会議室"
+  },
+  {
+   "id": "W4",
+   "area": "W",
+   "code": "W-4",
+   "building": "宇宙ステーション試験棟",
+   "room": "1階"
   }
  ],
  "events": [
@@ -1022,9 +1029,15 @@
     "整理券"
    ],
    "apply": {
-    "method": "tbd",
-    "pending": true,
-    "target": "ラウンジ\"つなぐ\""
+    "method": "lottery",
+    "pending": false,
+    "target": "ラウンジ\"つなぐ\"",
+    "start": "2026-11-19T18:00:00+09:00",
+    "end": "2026-11-24T23:59:00+09:00",
+    "url": "https://www.tokubetsu-yuutan.jaxa.jp",
+    "note": "申込は4イベント共通のフォーム。各イベント1回まで（48・51 は第3希望まで選べる）、2つのイベントで同じ時間帯は申し込めない。1回につき4名まで。\n当選でも通知メールを受信拒否していると落選扱い。11/19〜11/28 は jimukyoku@tokubetsu-yuutan.jaxa.jp からのメールを受け取れるようにしておく。",
+    "result": "11/26(木) までに応募者全員へ当選・落選をメールで通知",
+    "resultBy": "2026-11-26T23:59:00+09:00"
    },
    "ticket": {
     "time": "10:00～",
@@ -1104,10 +1117,15 @@
    "participation": [
     "事前申込"
    ],
-   "note": "申込情報は準備中です",
    "apply": {
-    "method": "tbd",
-    "pending": true
+    "method": "lottery",
+    "pending": false,
+    "start": "2026-11-19T18:00:00+09:00",
+    "end": "2026-11-24T23:59:00+09:00",
+    "url": "https://www.tokubetsu-yuutan.jaxa.jp",
+    "note": "申込は4イベント共通のフォーム。各イベント1回まで（48・51 は第3希望まで選べる）、2つのイベントで同じ時間帯は申し込めない。1回につき4名まで。\n当選でも通知メールを受信拒否していると落選扱い。11/19〜11/28 は jimukyoku@tokubetsu-yuutan.jaxa.jp からのメールを受け取れるようにしておく。",
+    "result": "11/26(木) までに応募者全員へ当選・落選をメールで通知",
+    "resultBy": "2026-11-26T23:59:00+09:00"
    }
   },
   {
@@ -1145,8 +1163,14 @@
    ],
    "note": "申込情報は準備中です\n事前申込の状況によっては、整理券配布を行う可能性があります",
    "apply": {
-    "method": "tbd",
-    "pending": true
+    "method": "lottery",
+    "pending": false,
+    "start": "2026-11-19T18:00:00+09:00",
+    "end": "2026-11-24T23:59:00+09:00",
+    "url": "https://www.tokubetsu-yuutan.jaxa.jp",
+    "note": "申込は4イベント共通のフォーム。各イベント1回まで（48・51 は第3希望まで選べる）、2つのイベントで同じ時間帯は申し込めない。1回につき4名まで。\n当選でも通知メールを受信拒否していると落選扱い。11/19〜11/28 は jimukyoku@tokubetsu-yuutan.jaxa.jp からのメールを受け取れるようにしておく。",
+    "result": "11/26(木) までに応募者全員へ当選・落選をメールで通知",
+    "resultBy": "2026-11-26T23:59:00+09:00"
    }
   },
   {
@@ -1162,15 +1186,20 @@
    ],
    "placeText": "W-4 宇宙ステーション試験棟 １階",
    "timeText": "10:00～15:30",
-   "summary": "有人与圧ローバーの模型・パネル展示とドライビングシミュレータ（本格版は事前申込、簡易版は予約なし）。",
+   "summary": "有人与圧ローバーの模型・パネル展示とドライビングシミュレータ（本格版は事前申込の8回、簡易版は予約なし）。",
    "participation": [
     "事前申込"
    ],
-   "note": "申込情報は準備中です",
    "apply": {
-    "method": "tbd",
-    "pending": true,
-    "target": "ドライビングシミュレータ"
+    "method": "lottery",
+    "pending": false,
+    "target": "ドライビングシミュレータ",
+    "start": "2026-11-19T18:00:00+09:00",
+    "end": "2026-11-24T23:59:00+09:00",
+    "url": "https://www.tokubetsu-yuutan.jaxa.jp",
+    "note": "申込は4イベント共通のフォーム。各イベント1回まで（48・51 は第3希望まで選べる）、2つのイベントで同じ時間帯は申し込めない。1回につき4名まで。\n当選でも通知メールを受信拒否していると落選扱い。11/19〜11/28 は jimukyoku@tokubetsu-yuutan.jaxa.jp からのメールを受け取れるようにしておく。",
+    "result": "11/26(木) までに応募者全員へ当選・落選をメールで通知",
+    "resultBy": "2026-11-26T23:59:00+09:00"
    }
   },
   {
@@ -2368,7 +2397,96 @@
    "area": "W",
    "start": "10:00",
    "end": "15:30",
-   "visit": 30
+   "visit": 30,
+   "sub": "展示・簡易シミュレータ（予約なし）"
+  },
+  {
+   "id": "51/1",
+   "event": "51",
+   "open": false,
+   "place": "W4",
+   "start": "10:20",
+   "end": "10:50",
+   "label": "①",
+   "sub": "本格ドライビングシミュレータ",
+   "needs": "apply"
+  },
+  {
+   "id": "51/2",
+   "event": "51",
+   "open": false,
+   "place": "W4",
+   "start": "11:00",
+   "end": "11:30",
+   "label": "②",
+   "sub": "本格ドライビングシミュレータ",
+   "needs": "apply"
+  },
+  {
+   "id": "51/3",
+   "event": "51",
+   "open": false,
+   "place": "W4",
+   "start": "11:40",
+   "end": "12:10",
+   "label": "③",
+   "sub": "本格ドライビングシミュレータ",
+   "needs": "apply"
+  },
+  {
+   "id": "51/4",
+   "event": "51",
+   "open": false,
+   "place": "W4",
+   "start": "12:20",
+   "end": "12:50",
+   "label": "④",
+   "sub": "本格ドライビングシミュレータ",
+   "needs": "apply"
+  },
+  {
+   "id": "51/5",
+   "event": "51",
+   "open": false,
+   "place": "W4",
+   "start": "13:00",
+   "end": "13:30",
+   "label": "⑤",
+   "sub": "本格ドライビングシミュレータ",
+   "needs": "apply"
+  },
+  {
+   "id": "51/6",
+   "event": "51",
+   "open": false,
+   "place": "W4",
+   "start": "13:40",
+   "end": "14:10",
+   "label": "⑥",
+   "sub": "本格ドライビングシミュレータ",
+   "needs": "apply"
+  },
+  {
+   "id": "51/7",
+   "event": "51",
+   "open": false,
+   "place": "W4",
+   "start": "14:20",
+   "end": "14:50",
+   "label": "⑦",
+   "sub": "本格ドライビングシミュレータ",
+   "needs": "apply"
+  },
+  {
+   "id": "51/8",
+   "event": "51",
+   "open": false,
+   "place": "W4",
+   "start": "15:00",
+   "end": "15:20",
+   "label": "⑧",
+   "sub": "本格ドライビングシミュレータ",
+   "needs": "apply"
   },
   {
    "id": "52",

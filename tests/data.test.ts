@@ -63,5 +63,7 @@ describe('program.json', () => {
     // 05 and 23 are booked per slot on their booking pages: no all-day entry
     expect(program.sessions.some((s) => s.id === '05' || s.id === '23')).toBe(false);
     expect([sessionsByEvent.get('05')!.length, sessionsByEvent.get('23')!.length]).toEqual([3, 8]);
+    // 51: drop-in exhibition + 8 simulator slots booked on the tokubetsu-yuutan site
+    expect(sessionsByEvent.get('51')!.map((s) => s.needs ?? '-')).toEqual(['-', ...Array(8).fill('apply')]);
   });
 });

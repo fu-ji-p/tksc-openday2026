@@ -63,7 +63,7 @@ describe('deadline calendar', () => {
     expect(text).toContain('UID:deadline-02@tksc-openday2026');
     expect(text).toContain('DTEND:20261123T145959Z');
     expect(text).not.toContain('UID:deadline-14@');
-    expect(text).not.toContain('UID:deadline-48@');
+    expect(text).toContain('UID:deadline-48@'); // announced on 11/19
     expect(text).not.toContain('VALARM');
   });
 
@@ -75,6 +75,8 @@ describe('deadline calendar', () => {
     expect(text).toContain('TRIGGER:-PT23H30M');
     expect(text).toContain('TRIGGER:-PT2H30M');
     expect(text.indexOf('END:VALARM')).toBeLessThan(text.indexOf('END:VEVENT'));
-    expect([hasUpcomingDeadline(eventByNo.get('02')!, nowMs), hasUpcomingDeadline(eventByNo.get('14')!, nowMs), hasUpcomingDeadline(eventByNo.get('48')!, nowMs)]).toEqual([true, false, false]);
+    expect([hasUpcomingDeadline(eventByNo.get('02')!, nowMs), hasUpcomingDeadline(eventByNo.get('14')!, nowMs), hasUpcomingDeadline(eventByNo.get('48')!, nowMs)]).toEqual([true, false, true]);
+    const e48 = eventByNo.get('48')!;
+    expect(hasUpcomingDeadline({ ...e48, apply: { ...e48.apply!, pending: true } }, nowMs)).toBe(false);
   });
 });
