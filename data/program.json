@@ -10,7 +10,7 @@
   "generatedFrom": [
    "https://visit-tsukuba.jaxa.jp/2026openday/assets/data/events.js"
   ],
-  "generatedAt": "2026-11-20"
+  "generatedAt": "2026-11-24"
  },
  "areas": [
   {
@@ -1263,7 +1263,8 @@
    "placeText": "W-4 宇宙ステーション試験棟 １階",
    "timeText": "10:00～15:30",
    "summary": "HTV-X の愛称を決める投票。",
-   "participation": []
+   "participation": [],
+   "status": "中止"
   },
   {
    "no": "56",
