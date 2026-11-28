@@ -77,13 +77,13 @@ describe('plan', () => {
     expect(resolveItem('99/1', {}, db)).toBeNull();
   });
 
-  it('knows the lunch breaks of 01, 20 and 33 and the shorter hours of 12', () => {
+  it('knows the lunch breaks of 01 and 33, the rain-changed hours of 20 and the shorter hours of 12', () => {
     const s = (id: string) => sessionById.get(id)!;
     expect(hoursText(s('01'))).toBe('10:00–12:00 ／ 13:00–15:30');
-    expect(hoursText(s('20'))).toBe('10:00–12:00 ／ 13:30–15:30');
+    expect(hoursText(s('20'))).toBe('11:30–15:00');
     expect(hoursText(s('33'))).toBe('10:00–12:00 ／ 13:00–15:30');
     expect([isOpenAt(s('01'), '11:55'), isOpenAt(s('01'), '12:00'), isOpenAt(s('01'), '12:30'), isOpenAt(s('01'), '13:00')]).toEqual([true, false, false, true]);
-    expect([isOpenAt(s('20'), '13:00'), isOpenAt(s('20'), '13:30'), isOpenAt(s('33'), '12:59')]).toEqual([false, true, false]);
+    expect([isOpenAt(s('20'), '11:29'), isOpenAt(s('20'), '11:30'), isOpenAt(s('33'), '12:59')]).toEqual([false, true, false]);
     expect([isOpenAt(s('12'), '10:00'), isOpenAt(s('12'), '10:15'), isOpenAt(s('12'), '14:30')]).toEqual([false, true, false]);
   });
 
